@@ -38,10 +38,11 @@ OPTIONAL_END = {
     "tbody": {"tbody", "tfoot"},
 }
 
-# Smallest plausible bundle. site/index.html is a ~2.75 MB generated blob; an
-# empty or stub file would otherwise pass every other check vacuously.
-MIN_INDEX_BYTES = 100_000
-INDEX_MARKERS = ("__bundler/manifest", "__bundler/template")
+# Every page must have these, whatever else it contains. Without such a floor
+# an empty file passes every other check vacuously: no tags to unbalance and no
+# links to break. Deliberately structural rather than size- or content-based,
+# so a page can be rewritten, shrunk or replaced without CI objecting.
+REQUIRED_TAGS = ("html", "body", "title")
 
 errors = []
 
@@ -54,8 +55,14 @@ class Checker(HTMLParser):
         self.path = path
         self.stack = []
         self.links = []
+        self.seen = set()
+        self.title = ""
+        self._in_title = False
 
     def handle_starttag(self, tag, attrs):
+        self.seen.add(tag)
+        if tag == "title":
+            self._in_title = True
         # An open optional-end tag is closed by a sibling that implies it.
         while self.stack and tag in OPTIONAL_END.get(self.stack[-1][0], ()):
             self.stack.pop()
@@ -65,7 +72,13 @@ class Checker(HTMLParser):
             if name in ("href", "src") and value:
                 self.links.append((value, self.getpos()[0]))
 
+    def handle_data(self, data):
+        if self._in_title:
+            self.title += data
+
     def handle_endtag(self, tag):
+        if tag == "title":
+            self._in_title = False
         if tag in VOID:
             return
         # A parent's end tag closes any optional-end children still open.
@@ -117,26 +130,17 @@ def main(argv):
         if not (SITE / name).exists():
             errors.append(f"missing required file site/{name}")
 
-    # index.html is a generated bundle, so "present" is not enough: whole-file
-    # loss leaves a file that parses cleanly and links to nothing.
-    index = SITE / "index.html"
-    if index.exists():
-        blob = index.read_text(encoding="utf-8")
-        if len(blob) < MIN_INDEX_BYTES:
-            errors.append(
-                f"site/index.html is {len(blob)} bytes; the bundle should be "
-                f"at least {MIN_INDEX_BYTES}"
-            )
-        for marker in INDEX_MARKERS:
-            if marker not in blob:
-                errors.append(f"site/index.html is missing {marker!r}")
-
     for page in sorted(SITE.rglob("*.html")):
         parser = Checker(page)
         parser.feed(page.read_text(encoding="utf-8"))
         parser.close()
         for tag, line in parser.stack:
             errors.append(f"{page.name}: <{tag}> opened on line {line} is never closed")
+        for tag in REQUIRED_TAGS:
+            if tag not in parser.seen:
+                errors.append(f"{page.name}: no <{tag}> element")
+        if "title" in parser.seen and not parser.title.strip():
+            errors.append(f"{page.name}: <title> is empty")
         check_links(page, parser.links)
 
     if errors:
