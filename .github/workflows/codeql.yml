@@ -1,0 +1,18 @@
+# Required of every Entur repository (entur/ai guides/reference/security.md).
+# The scannable surface here is small: one stdlib-only Python script. The
+# generated bundle in site/ is a string literal as far as CodeQL is concerned.
+
+name: CodeQL
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 6 * * 1'
+
+jobs:
+  code-scan:
+    uses: entur/gha-security/.github/workflows/code-scan.yml@v2
+    secrets: inherit

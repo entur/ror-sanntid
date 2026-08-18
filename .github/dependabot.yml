@@ -1,0 +1,12 @@
+version: 2
+updates:
+  # directory is the repo root, not .github/ — Dependabot resolves workflow
+  # files relative to the root and silently updates nothing if pointed at
+  # .github/ instead.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      actions:
+        patterns: ["*"]

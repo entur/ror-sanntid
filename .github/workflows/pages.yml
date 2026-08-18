@@ -1,0 +1,76 @@
+name: Publish site
+
+# Everything under site/ is served as-is; there is no build step.
+#
+# Publishing from an Actions workflow, the custom domain comes from the repo's
+# Pages setting, which lives outside git. A CNAME file in the artifact would be
+# ignored, so SITE_DOMAIN below is the repo's only record of the intended
+# hostname and the last step asserts the live setting still matches it.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Pages allows one in-flight deployment at a time. Queue rather than cancel,
+# so a merge train does not drop the last push.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  SITE_DOMAIN: sanntid.entur.no
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # Above deploy-pages' own 10 minute timeout, so its error surfaces rather
+    # than the runner killing the job first.
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # ci.yml runs this too, but on a parallel trigger that cannot order
+      # itself before the deploy. This is the copy that actually gates it.
+      - name: Check site
+        run: python3 tools/check_site.py --ci
+
+      # Turns the first deploy on a fresh repo into a success instead of a
+      # failure against a Pages site that does not exist yet.
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Verify custom domain is still bound
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          expected="${SITE_DOMAIN}"
+          actual=$(gh api "repos/${GITHUB_REPOSITORY}/pages" --jq '.cname // ""')
+          if [ -z "$actual" ]; then
+            # Expected until the DNS record lands and the domain is attached.
+            echo "::warning::No custom domain set yet; serving on the default Pages URL. Expected '${expected}' once setup is complete."
+          elif [ "$actual" != "$expected" ]; then
+            echo "::error::Pages custom domain is '${actual}', expected '${expected}'. Someone changed it outside git."
+            exit 1
+          else
+            echo "ok: serving on ${actual}"
+          fi

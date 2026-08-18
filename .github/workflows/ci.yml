@@ -1,0 +1,27 @@
+name: CI
+
+# pages.yml only runs on main behind a path filter, so without this a PR that
+# breaks the site would go green on nothing.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check site
+        run: python3 tools/check_site.py --ci
