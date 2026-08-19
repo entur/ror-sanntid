@@ -1,0 +1,807 @@
+/* Entur Design System — Colors & Type
+ * Source: entur/design-system (Linje tokens + Nationale typeface)
+ * All color tokens use Entur's semantic naming.
+ */
+
+/* ───────────────────────────────────────────────── FONTS ── */
+@font-face {
+  font-family: "Nationale";
+  src: url("fonts/nationale-300.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nationale";
+  src: url("fonts/nationale-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nationale";
+  src: url("fonts/nationale-400-italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nationale";
+  src: url("fonts/nationale-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nationale";
+  src: url("fonts/nationale-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Nationale";
+  src: url("fonts/nationale-600-italic.woff2") format("woff2");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ──────────────────────────────────────────────── TOKENS ── */
+:root {
+  /* ── Brand — core palette (from packages/tokens) ── */
+  --e-blue: #181c56; /* blue-main — primary, headlines, brand */
+  --e-blue-dark: #0b0e2b; /* blue-900 approximation */
+  --e-blue-mid: #2a2f75; /* blue-600 approximation */
+  --e-coral: #ff5959; /* red-main / underscore accent */
+  --e-lavender: #e5e6fb; /* blue-90 — tinted neutral */
+  --e-lavender-2: #d1d3f4; /* blue-80 */
+  --e-mint: #a8e5d5; /* green-90 soft accent */
+  --e-sand: #ffe5d4; /* orange-90 soft accent */
+
+  /* ── Transport colors (canonical per Entur icon set) ── */
+  --e-t-train: #00367f; /* Flytoget/NSB style navy */
+  --e-t-bus: #873e98; /* purple */
+  --e-t-metro: #ee7b0e; /* orange */
+  --e-t-tram: #1c5c28; /* green */
+  --e-t-ferry: #1b78c2; /* blue */
+  --e-t-plane: #97233f; /* dark red */
+  --e-t-bike: #6d7280; /* slate */
+  --e-t-walk: #0e8c8c; /* teal */
+  --e-t-car: #b25900; /* umber */
+
+  /* ── Neutrals ── */
+  --e-ink: #181c56; /* text on light */
+  --e-ink-muted: #5e6282; /* secondary text */
+  --e-ink-subtle: #8b90ae; /* tertiary / hint */
+  --e-line: #c5c8de; /* borders */
+  --e-line-soft: #e5e6f0; /* dividers */
+  --e-bg: #ffffff;
+  --e-bg-alt: #f5f6fa; /* surface-alt */
+  --e-bg-tint: #edeef8; /* tinted surface */
+  --e-white: #ffffff;
+
+  /* Inverse (on dark / on navy) */
+  --e-on-blue: #ffffff;
+  --e-on-blue-dim: #bec1e2;
+
+  /* ── Semantic / state ── */
+  --e-success: #17836d;
+  --e-success-bg: #def5ee;
+  --e-warning: #b0740a;
+  --e-warning-bg: #fdf1d8;
+  --e-error: #c3264b;
+  --e-error-bg: #fde3e8;
+  --e-info: #2a5caa;
+  --e-info-bg: #e2ecfb;
+
+  /* ── Type ── */
+  --e-font: "Nationale", "Inter", system-ui, -apple-system, sans-serif;
+  --e-font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+
+  /* Type scale — roles */
+  --e-h1-size: 56px;
+  --e-h1-line: 1.1;
+  --e-h1-weight: 500;
+  --e-h2-size: 40px;
+  --e-h2-line: 1.15;
+  --e-h2-weight: 500;
+  --e-h3-size: 28px;
+  --e-h3-line: 1.2;
+  --e-h3-weight: 500;
+  --e-h4-size: 22px;
+  --e-h4-line: 1.3;
+  --e-h4-weight: 500;
+  --e-h5-size: 18px;
+  --e-h5-line: 1.35;
+  --e-h5-weight: 500;
+  --e-lead-size: 20px;
+  --e-lead-line: 1.5;
+  --e-body-size: 16px;
+  --e-body-line: 1.55;
+  --e-small-size: 14px;
+  --e-small-line: 1.5;
+  --e-caption-size: 12px;
+  --e-caption-line: 1.4;
+
+  /* ── Spacing (4-base) ── */
+  --e-sp-1: 4px;
+  --e-sp-2: 8px;
+  --e-sp-3: 12px;
+  --e-sp-4: 16px;
+  --e-sp-5: 24px;
+  --e-sp-6: 32px;
+  --e-sp-7: 48px;
+  --e-sp-8: 64px;
+  --e-sp-9: 96px;
+
+  /* ── Radii ── */
+  --e-r-sm: 2px;
+  --e-r-md: 4px; /* most buttons / inputs */
+  --e-r-lg: 8px; /* cards */
+  --e-r-xl: 16px;
+  --e-r-pill: 999px;
+
+  /* ── Elevation ── */
+  --e-shadow-sm:
+    0 1px 2px rgba(24, 28, 86, 0.06), 0 0 0 1px rgba(24, 28, 86, 0.04);
+  --e-shadow-md:
+    0 4px 12px rgba(24, 28, 86, 0.08), 0 1px 2px rgba(24, 28, 86, 0.04);
+  --e-shadow-lg:
+    0 12px 32px rgba(24, 28, 86, 0.12), 0 2px 6px rgba(24, 28, 86, 0.06);
+  --e-shadow-focus: 0 0 0 3px rgba(24, 28, 86, 0.25);
+
+  /* ── Motion ── */
+  --e-ease: cubic-bezier(0.25, 0.8, 0.35, 1);
+  --e-dur-fast: 120ms;
+  --e-dur: 200ms;
+  --e-dur-slow: 360ms;
+}
+
+/* ────────────────────────────────────────── TYPE ROLES ── */
+.e-h1,
+h1.e {
+  font: var(--e-h1-weight) var(--e-h1-size)/var(--e-h1-line) var(--e-font);
+  color: var(--e-ink);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.e-h2,
+h2.e {
+  font: var(--e-h2-weight) var(--e-h2-size)/var(--e-h2-line) var(--e-font);
+  color: var(--e-ink);
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+.e-h3,
+h3.e {
+  font: var(--e-h3-weight) var(--e-h3-size)/var(--e-h3-line) var(--e-font);
+  color: var(--e-ink);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.e-h4,
+h4.e {
+  font: var(--e-h4-weight) var(--e-h4-size)/var(--e-h4-line) var(--e-font);
+  color: var(--e-ink);
+  margin: 0;
+}
+.e-h5,
+h5.e {
+  font: var(--e-h5-weight) var(--e-h5-size)/var(--e-h5-line) var(--e-font);
+  color: var(--e-ink);
+  margin: 0;
+}
+.e-lead {
+  font: 400 var(--e-lead-size)/var(--e-lead-line) var(--e-font);
+  color: var(--e-ink);
+  margin: 0;
+}
+.e-body,
+p.e {
+  font: 400 var(--e-body-size)/var(--e-body-line) var(--e-font);
+  color: var(--e-ink);
+  margin: 0;
+}
+.e-small {
+  font: 400 var(--e-small-size)/var(--e-small-line) var(--e-font);
+  color: var(--e-ink-muted);
+  margin: 0;
+}
+.e-caption {
+  font: 500 var(--e-caption-size)/var(--e-caption-line) var(--e-font);
+  color: var(--e-ink-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.e-mono {
+  font-family: var(--e-font-mono);
+}
+
+/* The signature underscore — Entur's wordmark flourish */
+.e-underscore {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.12em;
+}
+.e-underscore::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0.12em;
+  background: var(--e-coral);
+}
+
+/* Sanntid infoside — page styles, built on Entur Linje tokens */
+
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: var(--e-font);
+  color: var(--e-ink);
+  background: var(--e-white);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+a {
+  color: inherit;
+}
+.linkcard,
+.pill {
+  text-decoration: none;
+}
+
+/* ── Layout shell ── */
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.section {
+  padding: 72px 0;
+}
+.section--white {
+  background: var(--e-white);
+}
+.section--alt {
+  background: #f7f7f8;
+}
+
+/* ── Header / footer chrome ── */
+.chrome {
+  font-size: 22px;
+  color: var(--e-on-blue);
+}
+.chrome--header {
+  background: #f7f7f8;
+}
+.chrome--header .wrap {
+  padding-top: 28px;
+  padding-bottom: 12px;
+}
+.chrome--footer {
+  background: #d9d9d9;
+  color: #555;
+}
+.chrome--footer .wrap {
+  padding-top: 40px;
+  padding-bottom: 64px;
+}
+
+/* Entur wordmark */
+.entur-logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+.entur-logo img {
+  height: 26px;
+  width: auto;
+  display: block;
+}
+
+/* ── Hero (light gray) ── */
+.hero {
+  background: #f7f7f8;
+  color: var(--e-ink);
+  padding: 40px 0 88px;
+}
+.hero h1 {
+  font-weight: 500;
+  font-size: 52px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 36px;
+  color: var(--e-ink);
+}
+.hero-top {
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  gap: 56px;
+  align-items: start;
+}
+.hero-lead {
+  font-size: 27px;
+  line-height: 1.4;
+  font-weight: 400;
+  margin: 0 0 28px;
+  max-width: 28ch;
+  color: var(--e-ink);
+}
+.hero-body p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--e-ink);
+  margin: 0 0 18px;
+  max-width: 56ch;
+}
+.hero-figure {
+  padding-top: 88px;
+}
+.hero-figure img {
+  width: 100%;
+  height: auto;
+}
+
+/* link style on light hero */
+.lnk {
+  color: var(--e-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: text-decoration-thickness var(--e-dur) var(--e-ease);
+}
+.lnk:hover {
+  text-decoration-thickness: 2px;
+}
+/* link style on light */
+.dlnk {
+  color: var(--e-blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  cursor: pointer;
+  transition: text-decoration-thickness var(--e-dur) var(--e-ease);
+}
+.dlnk:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* ── Nav cards (4) ── */
+.navcards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-top: 64px;
+}
+.navcard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: var(--e-white);
+  border-radius: var(--e-r-xl);
+  padding: 40px 44px 44px;
+  text-align: left;
+  border: none;
+  color: var(--e-ink);
+  font-family: var(--e-font);
+  text-decoration: none;
+  box-shadow:
+    0 6px 20px rgba(24, 28, 86, 0.06),
+    0 1px 3px rgba(24, 28, 86, 0.04);
+  transition: box-shadow var(--e-dur) var(--e-ease);
+}
+.navcard:hover {
+  box-shadow:
+    0 10px 28px rgba(24, 28, 86, 0.1),
+    0 2px 5px rgba(24, 28, 86, 0.05);
+}
+.navcard h3 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 14px;
+  color: var(--e-ink);
+}
+.navcard p {
+  font-size: 17px;
+  line-height: 1.45;
+  color: var(--e-ink);
+  margin: 0 0 28px;
+}
+.navcard .pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: var(--e-ink);
+  font-weight: 500;
+  border: 1.5px solid var(--e-line);
+  border-radius: var(--e-r-lg);
+  padding: 11px 18px;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background var(--e-dur) var(--e-ease),
+    border-color var(--e-dur) var(--e-ease);
+}
+.navcard .pill:hover {
+  background: var(--e-bg-tint);
+  border-color: var(--e-blue);
+}
+
+/* ── Headings ── */
+.h2 {
+  font-size: 38px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  margin: 0 0 28px;
+  color: var(--e-ink);
+}
+.h3 {
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin: 0 0 18px;
+  color: var(--e-ink);
+}
+.h4 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 14px;
+  color: var(--e-ink);
+}
+.bodytext {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--e-ink);
+  margin: 0 0 20px;
+}
+.bodytext--narrow {
+  max-width: 70ch;
+}
+
+/* two-column text+figure */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+.split--narrow-text {
+  grid-template-columns: 0.9fr 1.1fr;
+}
+.split--text-left {
+  grid-template-columns: 0.78fr 1.22fr;
+  gap: 72px;
+}
+.figcaption {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--e-ink);
+  margin: 28px 0 0;
+  max-width: 62ch;
+}
+.figure-plain img {
+  width: 100%;
+  height: auto;
+}
+.figure-card {
+  background: var(--e-white);
+  border: 1px solid var(--e-line-soft);
+  border-radius: var(--e-r-lg);
+  padding: 16px;
+  box-shadow: var(--e-shadow-sm);
+}
+.figure-card img {
+  width: 100%;
+  height: auto;
+}
+
+/* ── Collapse chevron control ── */
+.chev-row {
+  display: flex;
+  justify-content: center;
+  padding: 8px 0;
+}
+.chev-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--e-ink);
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--e-r-pill);
+  transition: background var(--e-dur) var(--e-ease);
+}
+.chev-btn:hover {
+  background: var(--e-bg-tint);
+}
+.chev-btn svg {
+  transition: transform var(--e-dur) var(--e-ease);
+}
+
+.collapsible[hidden] {
+  display: none;
+}
+
+/* ── Accordions (Siri ET / VM / SX) ── */
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 28px;
+}
+.acc {
+  border-radius: var(--e-r-md);
+  overflow: hidden;
+  background: #e7e8f2;
+}
+.acc-head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #e7e8f2;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  padding: 18px 22px;
+  font-family: var(--e-font);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--e-blue);
+  transition: background var(--e-dur) var(--e-ease);
+}
+.acc-head:hover {
+  background: #dfe1ef;
+}
+.acc-mark {
+  color: var(--e-blue);
+  flex: none;
+  display: grid;
+  place-items: center;
+}
+.acc-title {
+  flex: 1;
+}
+.acc-chev {
+  flex: none;
+  transition: transform var(--e-dur) var(--e-ease);
+  color: var(--e-ink-muted);
+}
+.acc-head[aria-expanded="true"] .acc-chev {
+  transform: rotate(180deg);
+}
+.acc-body {
+  padding: 0 22px;
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height var(--e-dur-slow) var(--e-ease),
+    padding var(--e-dur-slow) var(--e-ease);
+  background: #edeef6;
+}
+.acc-body-inner {
+  padding: 4px 0 22px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--e-ink);
+}
+.acc.open .acc-body {
+  padding-top: 18px;
+}
+
+/* ── Lavender panels (Enturs rolle services) ── */
+.panel {
+  background: var(--e-bg-tint);
+  border-radius: var(--e-r-lg);
+  padding: 40px 44px;
+  margin-bottom: 28px;
+}
+.panel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.panel h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 18px;
+  color: var(--e-ink);
+}
+.panel .ptext {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--e-ink);
+}
+.panel .ptext p {
+  margin: 0 0 14px;
+}
+.linkcards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.linkcard {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--e-white);
+  border-radius: var(--e-r-md);
+  padding: 18px 22px;
+  box-shadow: var(--e-shadow-sm);
+  font-size: 17px;
+  line-height: 1.4;
+  color: var(--e-ink);
+  font-weight: 500;
+  transition: box-shadow var(--e-dur) var(--e-ease);
+}
+.linkcard:hover {
+  box-shadow: var(--e-shadow-md);
+}
+.linkcard .doc {
+  flex: none;
+  color: var(--e-ink);
+  margin-top: 2px;
+}
+
+/* ── Numbered steps ── */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.step {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+.step-num {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--e-r-pill);
+  border: 1.5px solid var(--e-blue);
+  color: var(--e-blue);
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  font-weight: 500;
+}
+.step-text {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--e-blue);
+  padding-top: 3px;
+}
+.step-note {
+  display: block;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--e-ink);
+  max-width: 68ch;
+}
+.step-sub {
+  max-width: 62ch;
+  margin: 22px 0 0 58px;
+}
+.step-sub p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--e-ink);
+  margin: 0 0 18px;
+}
+.steps-figure {
+  margin: 30px 0 30px 58px;
+  max-width: 780px;
+}
+.steps-figure img {
+  width: 100%;
+  height: auto;
+}
+
+/* ── Eksempler panel with nested bullets ── */
+.panel--examples h3 {
+  font-size: 26px;
+}
+.panel--examples h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 26px 0 12px;
+}
+.panel--examples ul {
+  margin: 0 0 4px;
+  padding-left: 22px;
+}
+.panel--examples li {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--e-ink);
+}
+.panel--examples ul ul {
+  margin-top: 6px;
+}
+
+.subblock {
+  margin-bottom: 40px;
+}
+.subblock:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Dokumentasjon og tjenester ── */
+.doclist {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 44px;
+}
+.docgroup h3 {
+  margin: 0 0 16px;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .hero-top,
+  .split,
+  .split--narrow-text,
+  .navcards,
+  .panel-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .hero h1 {
+    font-size: 40px;
+  }
+  .h2 {
+    font-size: 30px;
+  }
+  .navcard {
+    grid-template-columns: 110px 1fr;
+  }
+}
+
+.figure-plain--wide img {
+  width: 100%;
+}
+
+.linkcard .doc img {
+  width: 16px;
+  height: 16px;
+}
+
+.chev-label {
+  text-align: center;
+  font-size: 16px;
+  color: var(--e-ink);
+  margin: 72px 0 0;
+}
+#hva-er-sanntid {
+  padding-bottom: 20px;
+}
+.section--alt:has(#detail-block) {
+  padding-top: 12px;
+}
+.chev-row {
+  padding: 4px 0;
+}

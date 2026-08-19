@@ -8,6 +8,7 @@ is bound by the repo's Pages setting, and pages.yml asserts that setting
 against the live Pages API after each deploy.
 """
 
+import re
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
@@ -113,6 +114,18 @@ def check_links(page, links):
             errors.append(f"{page.name}:{line}: broken local link {target!r}")
 
 
+def check_css(path):
+    """Resolve url() targets in a stylesheet, relative to the stylesheet."""
+    for m in re.finditer(r"url\(\s*['\"]?([^)'\"]+)['\"]?\s*\)", path.read_text(encoding="utf-8")):
+        target = m.group(1).strip()
+        if urlparse(target).scheme or target.startswith(("//", "data:", "#")):
+            continue
+        line = path.read_text(encoding="utf-8")[: m.start()].count("\n") + 1
+        resolved = SITE / target.lstrip("/") if target.startswith("/") else path.parent / target
+        if not resolved.exists():
+            errors.append(f"{path.name}:{line}: broken url() {target!r}")
+
+
 def main(argv):
     ci = False
     for arg in argv:
@@ -142,6 +155,11 @@ def main(argv):
         if "title" in parser.seen and not parser.title.strip():
             errors.append(f"{page.name}: <title> is empty")
         check_links(page, parser.links)
+
+    # Fonts and background images referenced only from CSS are invisible to the
+    # HTML link check above.
+    for sheet in sorted(SITE.rglob("*.css")):
+        check_css(sheet)
 
     if errors:
         for e in errors:
