@@ -4,6 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sanntid · Entur</title>
+    <meta
+      name="description"
+      content="Sanntidsdata for kollektivtrafikk i Norge: hvordan sende inn SIRI ET, VM og SX til Enturs sanntidshub, og hvordan dataene brukes i reiseplanleggere."
+    />
+    <meta name="theme-color" content="#181c56" />
+    <link rel="canonical" href="https://sanntid.entur.no/" />
+    <link rel="icon" href="assets/img/entur-logo.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sanntid.entur.no/" />
+    <meta property="og:title" content="Sanntid – Entur" />
+    <meta
+      property="og:description"
+      content="Sanntidsdata for kollektivtrafikk i Norge: hvordan sende inn SIRI ET, VM og SX til Enturs sanntidshub, og hvordan dataene brukes i reiseplanleggere."
+    />
+    <meta
+      property="og:image"
+      content="https://sanntid.entur.no/assets/img/reisedetaljer-siri.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
     <link
       rel="preload"
       href="assets/fonts/nationale-400.woff2"
@@ -13,7 +32,7 @@
     />
     <link
       rel="preload"
-      href="assets/fonts/nationale-600.woff2"
+      href="assets/fonts/nationale-500.woff2"
       as="font"
       type="font/woff2"
       crossorigin
@@ -21,1603 +40,1908 @@
     <link rel="stylesheet" href="assets/styles.css" />
   </head>
   <body>
+    <a class="skip-link" href="#innhold">Hopp til innhold</a>
     <!-- ────────────────────────── HEADER (Entur logo) ── -->
-    <header class="chrome chrome--header" data-screen-label="header">
+    <header class="chrome chrome--header">
       <div class="wrap">
         <a class="entur-logo" href="#" aria-label="Entur">
-          <img src="assets/img/entur-logo.png" alt="Entur" />
+          <img
+            src="assets/img/entur-logo.png"
+            alt="Entur"
+            width="967"
+            height="309"
+          />
         </a>
       </div>
     </header>
 
     <!-- ────────────────────────── HERO ── -->
-    <header class="hero" data-screen-label="Hero — Sanntid">
-      <div class="wrap">
-        <div class="hero-top">
-          <div>
-            <h1>Sanntid</h1>
-            <p class="hero-lead">
-              Sanntidsdata gir reisende et bilde av nå-situasjonen gjennom
-              oppdatert reiseinformasjon i reisesøk og på informasjonstavler.
-              Det er også verdifull innsikt for mobilitetstilbydere og
-              operatører som kan tilpasse, effektivisere og videreutvikle
-              reisetilbudet basert på hva som faktisk hendte.
-            </p>
-            <div class="hero-body">
-              <p>
-                I Norge skal alle kollektivtilbydere sende inn sanntidsdata til
-                Nasjonalt Aksesspunkt (NAP), som igjen tilgjengeliggjør dataen
-                åpent for bruk.
-                <a
-                  class="lnk"
-                  href="https://napcore.eu/description-naps/national-access-point/"
-                  target="_blank"
-                  rel="noopener"
-                  >Les mer om NAP her</a
-                >.
+    <main id="innhold">
+      <section class="hero">
+        <div class="wrap">
+          <div class="hero-top">
+            <div>
+              <h1>Sanntid</h1>
+              <p class="hero-lead">
+                Sanntidsdata gir reisende et bilde av nå-situasjonen gjennom
+                oppdatert reiseinformasjon i reisesøk og på informasjonstavler.
+                Det er også verdifull innsikt for mobilitetstilbydere og
+                operatører som kan tilpasse, effektivisere og videreutvikle
+                reisetilbudet basert på hva som faktisk hendte.
               </p>
-              <p>
-                Entur er utnevnt av JDIR til å levere funksjonen NAP, og tilbyr
-                ulike tjenester som til sammen tilrettelegger for innsending,
-                distribusjon og analyse av kollektivdata, som også omfatter
-                sanntidsdata.
-              </p>
+              <div class="hero-body">
+                <p>
+                  I Norge skal alle kollektivtilbydere sende inn sanntidsdata
+                  til Nasjonalt Aksesspunkt (NAP), som igjen tilgjengeliggjør
+                  dataen åpent for bruk.
+                  <a
+                    class="lnk"
+                    href="https://napcore.eu/description-naps/national-access-point/"
+                    target="_blank"
+                    rel="noopener"
+                    >Les mer om NAP her</a
+                  >.
+                </p>
+                <p>
+                  Entur er utnevnt av JDIR til å levere funksjonen NAP, og
+                  tilbyr ulike tjenester som til sammen tilrettelegger for
+                  innsending, distribusjon og analyse av kollektivdata, som også
+                  omfatter sanntidsdata.
+                </p>
+              </div>
             </div>
-          </div>
-          <div class="hero-figure">
-            <img src="assets/img/hero-illustrasjon.svg" alt="Illustrasjon" />
-          </div>
-        </div>
-
-        <!-- nav cards -->
-        <nav class="navcards" aria-label="Snarveier">
-          <div class="navcard" data-comment-anchor="4fc61edcd7-a">
-            <h3>Hvordan komme i gang med å sende inn sanntid?</h3>
-            <p>
-              En oversikt over de tingene som må være på plass for å kunne sende
-              inn sanntidsdata til Sanntidshuben.
-            </p>
-            <a class="pill" href="#komme-i-gang">Les mer her →</a>
-          </div>
-          <div class="navcard">
-            <h3>Hvordan øke kvaliteten på sanntids reiseinformasjon?</h3>
-            <p>
-              Det en kontinuerlig jobb å sikre kvaliteten på dataen for å gi et
-              mest mulig presist bilde av situasjonen til reisende.
-            </p>
-            <a class="pill" href="#oke-kvalitet">Les mer her →</a>
-          </div>
-          <div class="navcard">
-            <h3>Hva tilbyr Entur innen sanntid?</h3>
-            <p>
-              En samlet oversikt over all dokumentasjon og tjenester Entur
-              tilbyr innen sanntidsdomenet.
-            </p>
-            <a class="pill" href="#dokumentasjon">Les mer her →</a>
-          </div>
-          <div class="navcard">
-            <h3>De ulike aktørenes roller</h3>
-            <p>
-              For å levere inn og bruke sanntidsdata er både Entur, de
-              ansvarlige for kollektivtilbudet regionalt, transportoperatører og
-              systemleverandører involvert.
-            </p>
-            <a class="pill" href="#enturs-rolle">Les mer her →</a>
-          </div>
-        </nav>
-      </div>
-    </header>
-
-    <!-- ────────────────────────── HVA ER SANNTID ── -->
-    <section
-      class="section section--white"
-      id="hva-er-sanntid"
-      data-screen-label="Hva er sanntid"
-    >
-      <div class="wrap">
-        <h2 class="h2">Hva er sanntid?</h2>
-        <p class="bodytext">
-          Når en reisende søker etter en reise frem i tid, vil de se alle
-          planlagte avganger. Dette er plandata, med informasjon om
-          stoppesteder, ruteoppsett og planlagte avgangstider, som gjerne legges
-          inn en stund i forveien. Når selve reisen nærmer seg, kan det
-          imidlertid oppstå uforutsette hendelser som fører til endringer eller
-          forsinkelser. Da er det sanntidsdata som kan gi den reisende oppdatert
-          informasjon om den planlagte avgangen. Sanntidsinformasjon kan vises
-          både som meldinger til den reisende, som forsinkelser i avgangstider,
-          sporendringer eller kanselleringer. Det kan også brukes til å vise et
-          oppdatert kart der reisende kan se nøyaktig hvor transportmiddelet
-          befinner seg eller om det er mange folk på bussen akkurat nå.
-        </p>
-
-        <div class="split split--text-left" style="margin-top: 64px">
-          <div>
-            <h3 class="h3">Hvordan fungerer det?</h3>
-            <p class="bodytext">
-              For å kunne vise denne informasjonen til de reisende, må det
-              sendes inn data fra transportmiddelet eller fra noen som skriver
-              en manuell avviksmelding og koble dette mot riktig planlagt
-              avgang, slik at det blir synlig i reisesøket eller på en
-              informasjonstavle. For at dette skal fungere på tvers av alle de
-              ulike aktørene som kjører busser, skriver avviksmeldinger eller
-              tilbyr reiseinformasjon, er det etablert noen standardformater som
-              brukes i Norge i dag.
-            </p>
-          </div>
-          <div>
-            <div class="figure-plain">
+            <div class="hero-figure">
               <img
-                src="assets/img/diagram-hvordan-fungerer-det.svg"
-                alt="Diagram: Data inn (plandata og oppdatert data fra mobilitetstilbydere) → Sanntidshub → Data ut (reisesøk)."
+                src="assets/img/hero-illustrasjon.svg"
+                alt="Diagram: roller rundt Nasjonalt Aksesspunkt (NAP) — PTO, PTA, leverandører og reisende."
+                width="671"
+                height="446"
               />
             </div>
-            <p class="figcaption">
-              Sanntidsdata blir koblet mot planlagte avganger i plandata, slik
-              at den reisende kan gjøre reisesøk i planlagte avganger, nå også
-              med relevant sanntidsinformasjon.
-            </p>
+          </div>
+
+          <!-- nav cards -->
+          <nav class="navcards" aria-label="Snarveier">
+            <div class="navcard">
+              <h2>Hvordan komme i gang med å sende inn sanntid?</h2>
+              <p>
+                En oversikt over de tingene som må være på plass for å kunne
+                sende inn sanntidsdata til Sanntidshuben.
+              </p>
+              <a class="pill" href="#komme-i-gang">Les mer her →</a>
+            </div>
+            <div class="navcard">
+              <h2>Hvordan øke kvaliteten på sanntids reiseinformasjon?</h2>
+              <p>
+                Det en kontinuerlig jobb å sikre kvaliteten på dataen for å gi
+                et mest mulig presist bilde av situasjonen til reisende.
+              </p>
+              <a class="pill" href="#oke-kvalitet">Les mer her →</a>
+            </div>
+            <div class="navcard">
+              <h2>Hva tilbyr Entur innen sanntid?</h2>
+              <p>
+                En samlet oversikt over all dokumentasjon og tjenester Entur
+                tilbyr innen sanntidsdomenet.
+              </p>
+              <a class="pill" href="#dokumentasjon">Les mer her →</a>
+            </div>
+            <div class="navcard">
+              <h2>De ulike aktørenes roller</h2>
+              <p>
+                For å levere inn og bruke sanntidsdata er både Entur, de
+                ansvarlige for kollektivtilbudet regionalt, transportoperatører
+                og systemleverandører involvert.
+              </p>
+              <a class="pill" href="#enturs-rolle">Les mer her →</a>
+            </div>
+          </nav>
+        </div>
+      </section>
+
+      <!-- ────────────────────────── HVA ER SANNTID ── -->
+      <section class="section section--white" id="hva-er-sanntid">
+        <div class="wrap">
+          <h2 class="h2">Hva er sanntid?</h2>
+          <p class="bodytext">
+            Når en reisende søker etter en reise frem i tid, vil de se alle
+            planlagte avganger. Dette er plandata, med informasjon om
+            stoppesteder, ruteoppsett og planlagte avgangstider, som gjerne
+            legges inn en stund i forveien. Når selve reisen nærmer seg, kan det
+            imidlertid oppstå uforutsette hendelser som fører til endringer
+            eller forsinkelser. Da er det sanntidsdata som kan gi den reisende
+            oppdatert informasjon om den planlagte avgangen. Sanntidsinformasjon
+            kan vises både som meldinger til den reisende, som forsinkelser i
+            avgangstider, sporendringer eller kanselleringer. Det kan også
+            brukes til å vise et oppdatert kart der reisende kan se nøyaktig
+            hvor transportmiddelet befinner seg eller om det er mange folk på
+            bussen akkurat nå.
+          </p>
+
+          <div class="split split--text-left" style="margin-top: 64px">
+            <div>
+              <h3 class="h3">Hvordan fungerer det?</h3>
+              <p class="bodytext">
+                For å kunne vise denne informasjonen til de reisende, må det
+                sendes inn data fra transportmiddelet eller fra noen som skriver
+                en manuell avviksmelding og koble dette mot riktig planlagt
+                avgang, slik at det blir synlig i reisesøket eller på en
+                informasjonstavle. For at dette skal fungere på tvers av alle de
+                ulike aktørene som kjører busser, skriver avviksmeldinger eller
+                tilbyr reiseinformasjon, er det etablert noen standardformater
+                som brukes i Norge i dag.
+              </p>
+            </div>
+            <div>
+              <div class="figure-plain">
+                <img
+                  src="assets/img/diagram-hvordan-fungerer-det.svg"
+                  alt="Diagram: Data inn (plandata og oppdatert data fra mobilitetstilbydere) → Sanntidshub → Data ut (reisesøk)."
+                  width="769"
+                  height="313"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <p class="figcaption">
+                Sanntidsdata blir koblet mot planlagte avganger i plandata, slik
+                at den reisende kan gjøre reisesøk i planlagte avganger, nå også
+                med relevant sanntidsinformasjon.
+              </p>
+            </div>
+          </div>
+
+          <p class="chev-label">Les mer om hvordan det fungerer</p>
+          <div class="chev-row">
+            <button
+              class="chev-btn"
+              id="chevTop"
+              aria-expanded="true"
+              aria-controls="detail-block"
+              aria-label="Vis eller skjul detaljer"
+            >
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
           </div>
         </div>
+      </section>
 
-        <p class="chev-label">Les mer om hvordan det fungerer</p>
-        <div class="chev-row">
-          <button
-            class="chev-btn"
-            id="chevTop"
-            aria-expanded="false"
-            aria-controls="detail-block"
-            aria-label="Vis eller skjul detaljer"
-          >
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+      <!-- ────────────────────────── STANDARDFORMATER (collapsible detail) ── -->
+      <section class="section section--alt">
+        <div class="wrap">
+          <div class="chev-row">
+            <button
+              class="chev-btn"
+              id="chevBottom"
+              aria-expanded="true"
+              aria-controls="detail-block"
+              aria-label="Vis eller skjul detaljer"
             >
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </section>
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+          </div>
 
-    <!-- ────────────────────────── STANDARDFORMATER (collapsible detail) ── -->
-    <section class="section section--alt" data-screen-label="Standardformater">
-      <div class="wrap">
-        <div class="chev-row">
-          <button
-            class="chev-btn"
-            id="chevBottom"
-            aria-expanded="false"
-            aria-controls="detail-block"
-            aria-label="Vis eller skjul detaljer"
-          >
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </button>
-        </div>
-
-        <div id="detail-block" class="collapsible" hidden="">
-          <div>
+          <div id="detail-block" class="collapsible">
             <div>
-              <h3 class="h3">Standardformater</h3>
+              <div>
+                <h3 class="h3">Standardformater</h3>
+                <p class="bodytext">
+                  Formatet er basert på Transmodel - en europeisk modell for
+                  konsepter og datastruktur innen offentlig mobilitet.
+                  <a
+                    class="dlnk"
+                    href="https://transmodel-cen.eu/"
+                    target="_blank"
+                    rel="noopener"
+                    >Les om Transmodel her</a
+                  >.
+                </p>
+                <p class="bodytext">
+                  Formatet som brukes for sanntid heter SIRI, som består av
+                  flere ulike protokoller egnet for sending av ulike typer data.
+                  Entur har vært med på å etablere den nordiske profilen av
+                  SIRI, i samarbeid med JDIR, og har fått ansvaret for å
+                  operasjonalisere den i Norge.
+                  <a
+                    class="dlnk"
+                    href="https://entur.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/Nordic+SIRI+Profile"
+                    target="_blank"
+                    rel="noopener"
+                    >Her kan du lese om SIRI nordic profile</a
+                  >.
+                </p>
+                <p class="bodytext">
+                  I dag brukes protokollene SIRI ET, SIRI VM og SIRI SX i Norge.
+                </p>
+
+                <div
+                  class="figure-plain figure-plain--wide"
+                  style="margin: 36px 0 40px"
+                >
+                  <img
+                    src="assets/img/reisedetaljer-siri.png"
+                    alt="Illustrasjon: reisedetaljer i reiseplanleggeren med markering av hvor SIRI ET, SIRI VM og SIRI SX vises."
+                    width="4310"
+                    height="2322"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+                <div class="accordion">
+                  <div class="acc open">
+                    <button class="acc-head" aria-expanded="true">
+                      <span class="acc-mark"
+                        ><svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M12 1.5l3 3-3 3-3-3zM5 8.5l3 3-3 3-3-3zM19 8.5l3 3-3 3-3-3zM12 15.5l3 3-3 3-3-3z"
+                          ></path></svg
+                      ></span>
+                      <span class="acc-title"
+                        >SIRI ET – Estimater på avgangstider, kanselleringer
+                        eller ekstraturer</span
+                      >
+                      <span class="acc-chev"
+                        ><svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <polyline points="6 9 12 15 18 9"></polyline></svg
+                      ></span>
+                    </button>
+                    <div class="acc-body">
+                      <div class="acc-body-inner">
+                        SIRI ET er et XML-format for innsending av estimater på
+                        avgangstider, kanselleringer eller informasjon om
+                        ekstraturer. Dette vises gjerne når det er forsinkelser,
+                        og det kommer en ny estimert avgangstid i reisesøket.
+                        Dataen er knyttet til et spesifikt kjøretøy, en
+                        spesifikk avgang på en spesifikk rute. Dataen sendes inn
+                        hver gang det skjer en endring, som kan være at de har
+                        kjørt forbi en holdeplass eller om det sendes inn en
+                        manuell kansellering eller settes opp en ekstra tur.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="acc open">
+                    <button class="acc-head" aria-expanded="true">
+                      <span class="acc-mark"
+                        ><svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M12 1.5l3 3-3 3-3-3zM5 8.5l3 3-3 3-3-3zM19 8.5l3 3-3 3-3-3zM12 15.5l3 3-3 3-3-3z"
+                          ></path></svg
+                      ></span>
+                      <span class="acc-title"
+                        >SIRI VM – Posisjonsdata, fyllingsgrad og
+                        kjøretøyretning</span
+                      >
+                      <span class="acc-chev"
+                        ><svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <polyline points="6 9 12 15 18 9"></polyline></svg
+                      ></span>
+                    </button>
+                    <div class="acc-body">
+                      <div class="acc-body-inner">
+                        SIRI VM er et XML-format som kan sende inn
+                        posisjonsdata, fyllingsgrad, og data om kjøretøyets
+                        retning. Dette kan gi den reisende eller driftssentre
+                        oppdatert informasjon om hvor kjøretøyet befinner seg.
+                        Dataen er knyttet til et kjøretøy som kjører en
+                        spesifikk avgang på en spesifikk rute, og sendes inn
+                        regelmessig, gjerne med 1-3 sekunders mellomrom.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="acc open">
+                    <button class="acc-head" aria-expanded="true">
+                      <span class="acc-mark"
+                        ><svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                        >
+                          <path
+                            d="M12 1.5l3 3-3 3-3-3zM5 8.5l3 3-3 3-3-3zM19 8.5l3 3-3 3-3-3zM12 15.5l3 3-3 3-3-3z"
+                          ></path></svg
+                      ></span>
+                      <span class="acc-title"
+                        >SIRI SX – Tekstlige beskjeder om avvik</span
+                      >
+                      <span class="acc-chev"
+                        ><svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <polyline points="6 9 12 15 18 9"></polyline></svg
+                      ></span>
+                    </button>
+                    <div class="acc-body">
+                      <div class="acc-body-inner">
+                        SIRI SX er et fritekstformat som brukes til å gi
+                        informasjon til reisende ved avvik. Avviket kan knyttes
+                        til linje, stoppested eller avgang. Meldingene sendes
+                        inn til sanntidshuben når behovet for å dele informasjon
+                        oppstår, og sendes ikke inn regelmessig.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="split"
+              style="margin-top: 64px; align-items: flex-start"
+            >
+              <div>
+                <h3 class="h3">Data inn fra mobilitetstilbydere</h3>
+                <p class="bodytext">
+                  For å sende inn data i henhold til standarden må
+                  mobilitetstilbydere bruke tjenester som kan samle inn dataene,
+                  og produsere dette i SIRI formatet. De ulike formatene krever
+                  ulike tjenester, og disse kan leveres av én eller flere
+                  leverandører, gjennom de ansvarlige for kollektivtilbudet
+                  (PTA) eller via en eller flere operatører (PTO). Leverandøren
+                  av disse tjenestene kan være en tredjepart, kollektivselskapet
+                  selv eller Entur.
+                </p>
+              </div>
+              <div class="figure-plain">
+                <img
+                  src="assets/img/diagram-data-inn.svg"
+                  alt="Diagram: Data fra kjøretøy og manuell oppdatering produseres i SIRI VM/ET/SX-format, valideres, og sendes til sanntidshuben."
+                  width="958"
+                  height="491"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+
+            <div style="margin-top: 56px">
+              <h3 class="h3">Validering</h3>
               <p class="bodytext">
-                Formatet er basert på Transmodel - en europeisk modell for
-                konsepter og datastruktur innen offentlig mobilitet.
+                For å sikre at innkommende data er korrekt og gir riktig
+                reiseinformasjon til de reisende, må dataen valideres før den
+                sendes videre.
+                <a class="dlnk" href="#validering-info"
+                  >(Les mer om validering her.)</a
+                >
+                Inneholder dataen store feil som kan gi dirkete misvisende
+                informasjon til reisende, kan den stoppes fra å sendes videre
+                til reisesøket. Mindre feil i dataen vil ikke stoppes, men kan
+                flagges i valideringsrapporter, som et godt grunnlag for å
+                forbedre dataen.
+              </p>
+            </div>
+
+            <div style="margin-top: 40px">
+              <h3 class="h3">
+                Samling og distribusjon av data - sanntidshuben
+              </h3>
+              <p class="bodytext">
+                Sanntidshuben er en del av Nasjonalt aksesspunkt (NAP), og
+                samler inn SIRI SX-, VM- og ET-strømmer fra alle
+                kollektivaktører som sender inn denne dataen i Norge. Mer
+                dokumentasjon om hvordan tjenesten fungerer og eksempler på
+                bruk,
                 <a
                   class="dlnk"
-                  href="https://transmodel-cen.eu/"
+                  href="https://entur.atlassian.net/wiki/spaces/ROR/pages/1504412744/Anshar+-+SIRI+server"
                   target="_blank"
                   rel="noopener"
-                  >Les om Transmodel her</a
+                  >kan leses her</a
                 >.
               </p>
               <p class="bodytext">
-                Formatet som brukes for sanntid heter SIRI, som består av flere
-                ulike protokoller egnet for sending av ulike typer data. Entur
-                har vært med på å etablere den nordiske profilen av SIRI, i
-                samarbeid med JDIR, og har fått ansvaret for å operasjonalisere
-                den i Norge.
+                All rådata i sanntidshuben er tilgjengelig for de som ønsker å
+                bruke den. Det er mulig å hente ut i dag i ulike formater - fra
+                å abonnere direkte på SIRI-strømmene, til mer lettvektsformat
+                (REST API), GTFS-RT format eller som data i BigQuery.
                 <a
                   class="dlnk"
+                  href="https://developer.entur.no/open-data/realtime"
+                  target="_blank"
+                  rel="noopener"
+                  >Les mer om dette her</a
+                >.
+              </p>
+            </div>
+
+            <div style="margin-top: 40px">
+              <h3 class="h3">Data ut til konsumenter</h3>
+              <p class="bodytext">
+                Ved å bruke ett av disse formatene kan dataen brukes til å bygge
+                ulike typer tjenester; rettet mot reisende og oppdatert
+                reiseinformasjon, for å gi kollektivtilbydere bedre oversikt når
+                det oppstår avvik, eller for å analysere og feilsøke i
+                etterkant.
+                <a class="dlnk" href="#hente-ut-data"
+                  >Les mer om de ulike formatene Entur tilbyr her</a
+                >.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ────────────────────────── ENTURS ROLLE ── -->
+      <section class="section section--white" id="enturs-rolle">
+        <div class="wrap">
+          <h2 class="h2">Enturs rolle</h2>
+          <p class="bodytext">
+            Ansvaret for innhenting, forvaltning og formidling av nasjonale
+            rutedata, som også omfatter sanntidsdata, er delegert til
+            Jernbanedirektoratet og Entur. Dette gir Entur en sentral rolle i å
+            samle inn og distribuere åpne data i sektoren. Samtidig er Entur en
+            pådriver for videreutvikling av den nordiske SIRI-profilen, og
+            deltar aktivt i samarbeid på tvers av nordiske land og i Europa.
+          </p>
+
+          <h3 class="h3" style="margin-top: 48px">Hva tilbyr Entur?</h3>
+          <div class="figure-plain" style="margin: 24px 0 56px">
+            <img
+              src="assets/img/diagram-hva-tilbyr-entur.svg"
+              alt="Oversiktsdiagram: Informere/dokumentere, Innsending/validering av data, Mottak/distribusjon og Bruk av data (analyseverktøy, dataformater, tjenester)."
+              width="1280"
+              height="530"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <!-- panel: Informere og dokumentere -->
+          <div class="panel">
+            <div class="panel-grid">
+              <div>
+                <h3>Informere og dokumentere</h3>
+                <div class="ptext">
+                  <p>
+                    I håndbok N801 er det beskrevet hva kollektivtilbydere må
+                    levere inn av data, og hvilken rolle Entur har i Norge.
+                    Entur har også en aktiv rolle i internasjonalt samarbeid om
+                    videreutvikling av SIRI-protokollene, og har bidratt mye til
+                    den nordiske profilen.
+                  </p>
+                  <p>
+                    Praktiske eksempler på hvordan meldingene skal se ut finnes
+                    på GitHub. (Les mer under Mottak og distribusjon)
+                  </p>
+                </div>
+              </div>
+              <div class="linkcards">
+                <a
+                  class="linkcard"
+                  href="https://www.jernbanedirektoratet.no/metoder-og-standarder/handboker-for-samlet-kollektivtrafikk/"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    >Håndbok N801 på
+                    <span class="dlnk">Jernbanedirektoratets sider</span>
+                    →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
                   href="https://entur.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/Nordic+SIRI+Profile"
                   target="_blank"
                   rel="noopener"
-                  >Her kan du lese om SIRI nordic profile</a
-                >.
-              </p>
-              <p class="bodytext">
-                I dag brukes protokollene SIRI ET, SIRI VM og SIRI SX i Norge.
-              </p>
-
-              <div
-                class="figure-plain figure-plain--wide"
-                style="margin: 36px 0 40px"
-              >
-                <img
-                  src="assets/img/reisedetaljer-siri.png"
-                  alt="Illustrasjon: reisedetaljer i reiseplanleggeren med markering av hvor SIRI ET, SIRI VM og SIRI SX vises."
-                />
-              </div>
-              <div class="accordion">
-                <div class="acc">
-                  <button class="acc-head" aria-expanded="false">
-                    <span class="acc-mark"
-                      ><svg
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                      >
-                        <path
-                          d="M12 1.5l3 3-3 3-3-3zM5 8.5l3 3-3 3-3-3zM19 8.5l3 3-3 3-3-3zM12 15.5l3 3-3 3-3-3z"
-                        ></path></svg
-                    ></span>
-                    <span class="acc-title"
-                      >SIRI ET – Estimater på avgangstider, kanselleringer eller
-                      ekstraturer</span
-                    >
-                    <span class="acc-chev"
-                      ><svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <polyline points="6 9 12 15 18 9"></polyline></svg
-                    ></span>
-                  </button>
-                  <div class="acc-body">
-                    <div class="acc-body-inner">
-                      SIRI ET er et XML-format for innsending av estimater på
-                      avgangstider, kanselleringer eller informasjon om
-                      ekstraturer. Dette vises gjerne når det er forsinkelser,
-                      og det kommer en ny estimert avgangstid i reisesøket.
-                      Dataen er knyttet til et spesifikt kjøretøy, en spesifikk
-                      avgang på en spesifikk rute. Dataen sendes inn hver gang
-                      det skjer en endring, som kan være at de har kjørt forbi
-                      en holdeplass eller om det sendes inn en manuell
-                      kansellering eller settes opp en ekstra tur.
-                    </div>
-                  </div>
-                </div>
-                <div class="acc">
-                  <button class="acc-head" aria-expanded="false">
-                    <span class="acc-mark"
-                      ><svg
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                      >
-                        <path
-                          d="M12 1.5l3 3-3 3-3-3zM5 8.5l3 3-3 3-3-3zM19 8.5l3 3-3 3-3-3zM12 15.5l3 3-3 3-3-3z"
-                        ></path></svg
-                    ></span>
-                    <span class="acc-title"
-                      >SIRI VM – Posisjonsdata, fyllingsgrad og
-                      kjøretøyretning</span
-                    >
-                    <span class="acc-chev"
-                      ><svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <polyline points="6 9 12 15 18 9"></polyline></svg
-                    ></span>
-                  </button>
-                  <div class="acc-body">
-                    <div class="acc-body-inner">
-                      SIRI VM er et XML-format som kan sende inn posisjonsdata,
-                      fyllingsgrad, og data om kjøretøyets retning. Dette kan gi
-                      den reisende eller driftssentre oppdatert informasjon om
-                      hvor kjøretøyet befinner seg. Dataen er knyttet til et
-                      kjøretøy som kjører en spesifikk avgang på en spesifikk
-                      rute, og sendes inn regelmessig, gjerne med 1-3 sekunders
-                      mellomrom.
-                    </div>
-                  </div>
-                </div>
-                <div class="acc">
-                  <button class="acc-head" aria-expanded="false">
-                    <span class="acc-mark"
-                      ><svg
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                      >
-                        <path
-                          d="M12 1.5l3 3-3 3-3-3zM5 8.5l3 3-3 3-3-3zM19 8.5l3 3-3 3-3-3zM12 15.5l3 3-3 3-3-3z"
-                        ></path></svg
-                    ></span>
-                    <span class="acc-title"
-                      >SIRI SX – Tekstlige beskjeder om avvik</span
-                    >
-                    <span class="acc-chev"
-                      ><svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <polyline points="6 9 12 15 18 9"></polyline></svg
-                    ></span>
-                  </button>
-                  <div class="acc-body">
-                    <div class="acc-body-inner">
-                      SIRI SX er et fritekstformat som brukes til å gi
-                      informasjon til reisende ved avvik. Avviket kan knyttes
-                      til linje, stoppested eller avgang. Meldingene sendes inn
-                      til sanntidshuben når behovet for å dele informasjon
-                      oppstår, og sendes ikke inn regelmessig.
-                    </div>
-                  </div>
-                </div>
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    >Den nordiske SIRI-profilen
+                    <span class="dlnk">åpent i Confluence</span> →</span
+                  ></a
+                >
               </div>
             </div>
           </div>
 
-          <div class="split" style="margin-top: 64px; align-items: flex-start">
+          <!-- panel: Innsending av data -->
+          <div class="panel">
+            <div class="panel-grid">
+              <div>
+                <h3>Innsending av data</h3>
+                <div class="ptext">
+                  <p>
+                    Entur tilbyr i dag et verktøy for innsending av SX-data og
+                    enkelte meldinger i ET-format. Grensesnittet lar brukeren
+                    knytte tekstlige beskjeder til avganger, stoppesteder eller
+                    linjer for å informere reisende ved avvik, samt legge inn
+                    kanselleringer og ekstraturer.
+                  </p>
+                  <p>
+                    For å kunne benytte tjenesten, må det etableres en avtale
+                    med Entur og opprettes en bruker knyttet til organisasjonen.
+                    For å bli partner med Entur, les mer på
+                    <a
+                      class="dlnk"
+                      href="https://www.entur.no"
+                      target="_blank"
+                      rel="noopener"
+                      >entur.no</a
+                    >
+                    eller ta kontakt på
+                    <a class="dlnk" href="mailto:kollektivdata@entur.org"
+                      >kollektivdata@entur.org</a
+                    >.
+                  </p>
+                </div>
+              </div>
+              <div class="linkcards">
+                <a
+                  class="linkcard"
+                  href="https://avvik.entur.org"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    >Avvikstjenesten -
+                    <span class="dlnk">avvik.entur.org</span> →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://entur.atlassian.net/wiki/spaces/PUBLIC/pages/1444380841/User+guide+Deviation+messages"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk">Brukerveiledning for tjenesten</span>
+                    →</span
+                  ></a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- panel: Validering -->
+          <div class="panel" id="validering-info">
+            <div class="panel-grid">
+              <div>
+                <h3>Validering</h3>
+                <div class="ptext">
+                  <p>
+                    Valideringen sjekker formatet på meldingene og noe logikk,
+                    for å vurdere om dette er data som kan leses korrekt og vil
+                    vise riktig informasjon til de reisende. Selve grensesnittet
+                    viser bare hva som vil gå gjennom og hva som vil feile, og
+                    feil blir ikke forkastet her. Det som er kategorisert som
+                    alvorlige feil, blir forkastet i selve sanntidstjenesten
+                    eller i reisesøkmotoren (OTP). Valideringsrapportene er åpne
+                    for alle, og alle som sender inn SX-, VM- og/eller
+                    ET-meldinger kan bruke verktøyet til å se om dataene de
+                    sender inn feiler eller ikke. Hva de ulike feilmeldingene
+                    betyr, og hvordan man søker opp sine data er beskrevet i
+                    brukerveiledningen.
+                  </p>
+                </div>
+              </div>
+              <div class="linkcards">
+                <a
+                  class="linkcard"
+                  href="https://api.entur.io/realtime/v1/validation"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    >Tjeneste for å hente ut
+                    <span class="dlnk">valideringrapporter</span> →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://entur.atlassian.net/wiki/spaces/PUBLIC/pages/1658159131/Brukerveiledning+SIRI-profilvalidator"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk">Brukerveiledning for tjenesten</span>
+                    →</span
+                  ></a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- panel: Mottak og distribusjon -->
+          <div class="panel">
+            <div class="panel-grid">
+              <div>
+                <h3>Mottak og distribusjon</h3>
+                <div class="ptext">
+                  <p>
+                    Sanntidshuben tar imot rundt 70 strømmer med ET-, VM- og
+                    SX-meldinger fra aktører i Norge, og gjør dem tilgjengelig
+                    på tvers av alle som sender inn. Tjenesten er et åpen
+                    kildekode-prosjekt, Anshar, tilgjengelig på GitHub sammen
+                    med dokumentasjon på hvordan den mottar og sender data i
+                    henhold til SIRI-protokollen. På GitHub finnes det også et
+                    eksempeloppsett av en applikasjon som viser i praksis
+                    hvordan kommunikasjon mellom tjenesten og innsender kan se
+                    ut, samt eksempler på meldinger i de ulike formatene.
+                  </p>
+                </div>
+              </div>
+              <div class="linkcards">
+                <a
+                  class="linkcard"
+                  href="https://github.com/entur/anshar"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk">Sanntidshuben (Anshar) i GitHub</span>
+                    →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://github.com/entur/anshar/blob/master/Subscription-lifecycle.md"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    >Dokumentasjon av
+                    <span class="dlnk"
+                      >mottak/distribusjon til sanntidshuben</span
+                    >
+                    →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://github.com/entur/siri-service-example"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk"
+                      >Eksempeloppsett mottak/distribusjonstjeneste</span
+                    >
+                    →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://github.com/entur/profile-examples/tree/master/siri"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk">Eksempler på meldinger</span> i
+                    SIRI-formater i GitHub →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://github.com/entur/siri-java-model"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    >Bibliotek/datamodell fra XML schema i SIRI standarden
+                    <span class="dlnk">i GitHub</span> →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://mvnrepository.com/artifact/org.entur/siri-java-model"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    >Bibliotek/datamodell fra XML schema i SIRI standarden
+                    <span class="dlnk">i Maven repository</span> →</span
+                  ></a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- panel: Hente ut data -->
+          <div class="panel" id="hente-ut-data">
+            <div class="panel-grid">
+              <div>
+                <h3>Hente ut data</h3>
+                <div class="ptext">
+                  <p>
+                    All data er åpent tilgjengelig fra sanntidshuben, og Entur
+                    tilbyr ulike formater for å konsumere den. Det er mulig å
+                    abonnere direkte på ET-, VM- og SX-strømmene i SIRI-format.
+                    Det er disse strømmene som brukes videre i reisesøket,
+                    sammen med plandata og andre datakilder. Det tilbys også et
+                    SIRI Lite REST API, for periodisk uthenting av data. GTFS-RT
+                    er formatet blant annet Google Maps bruker, og er et
+                    lettvektsformat med mindre rik data. Dataen kan også lastes
+                    ned eller brukes direkte fra BigQuery til for eksempel
+                    analyseformål. Hvordan ta i bruk disse formatene er
+                    beskrevet på Enturs utviklerportal eller dataportal.
+                  </p>
+                </div>
+              </div>
+              <div class="linkcards">
+                <a
+                  class="linkcard"
+                  href="https://developer.entur.no/open-data/realtime"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk">SIRI ET-, SX- og VM-strømmer</span> i
+                    utviklerportalen →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://developer.entur.no/open-data/realtime"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk">SIRI Lite REST API</span> i
+                    utviklerportalen →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://developer.entur.no/open-data/realtime"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk">GTFS-RT-format</span> i utviklerportalen
+                    →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://data.entur.no/public/datasets/realtime_siri_et"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk">Data i BigQuery</span> via dataportalen
+                    →</span
+                  ></a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- panel: Spesifikke tjenester -->
+          <div class="panel">
+            <div class="panel-grid">
+              <div>
+                <h3>Spesifikke tjenester bygget på sanntidsdata</h3>
+                <div class="ptext">
+                  <p>
+                    Entur tilbyr et API som kan sende pushvarsler på gitte
+                    strekninger til reisende i sin valgte reiseapp. APIet er
+                    dokumentert på utviklerportalen, og det er også bygget et
+                    grensesnitt som viser hva abonnenter vil se.
+                  </p>
+                  <p>
+                    For enklere bruk av VM- og ET-data om kjøretøyposisjoner,
+                    fyllingsgrad og estimerte ankomsttider er det utviklet et
+                    eget API som lar deg vise sanntidsdata direkte til en
+                    sluttbruker. Det finnes også et grensesnitt som viser
+                    hvordan denne dataen kan brukes i praksis.
+                  </p>
+                </div>
+              </div>
+              <div class="linkcards">
+                <a
+                  class="linkcard"
+                  href="https://developer.entur.no/docs/partner-services/deviations"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk">API for pushvarsler</span> i
+                    utviklerportalen →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://api.entur.io/realtime-deviations/v1/demo/subscriptions"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk"
+                      >Demonstrasjon av pushvarsel-tjenesten</span
+                    >
+                    →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://developer.entur.org/pages-real-time-vehicles"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk">API for kjøretøyposisjoner</span> i
+                    utviklerportalen →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://vehicle-map.entur.org"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk"
+                      >Demonstrasjon av API for kjøretøysposisjoner - Vehicle
+                      Map</span
+                    >
+                    →</span
+                  ></a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- panel: Analysere data -->
+          <div class="panel" id="analysere-data">
+            <div class="panel-grid">
+              <div>
+                <h3>Analysere data</h3>
+                <div class="ptext">
+                  <p>
+                    Real Time Archive er en tjeneste som gir et bilde av hvilke
+                    data som faktisk ble sendt fra sanntidshuben til
+                    reisesøkmotoren. Tjenesten tilbys både som et API og som et
+                    grensesnitt. Den viser kun ET-meldinger, men det er mulig å
+                    søke opp avganger fra alle kollektivtilbydere, og se hver
+                    enkelt ET-melding som ble sendt inn til sanntidshuben. Dette
+                    gjør det enklere å gjenskape situasjonen slik den var på et
+                    gitt tidspunkt, og kan hjelpe aktørene å forstå hva som ble
+                    vist til de reisende, og hva som kan ha gått galt hvis
+                    reisende opplever å få feil informasjon.
+                  </p>
+                  <p>
+                    Kvalitetsdashbordet er bygget på historiske data fra
+                    BigQuery og viser et overordnet bilde av kvaliteten på
+                    sanntidsdata fra de ulike aktørene, for hver av de ulike
+                    strømmene. Det er også mulig å gå mer i detalj og se på
+                    ulike deler av dataen i hver enkelt strøm. Dashbordet kan
+                    også brukes til å måle effekten av eventuelle tiltak for å
+                    bedre kvaliteten.
+                  </p>
+                  <p>
+                    Det finnes flere dashboard å utforske på dataportalen,
+                    <a
+                      class="dlnk"
+                      href="https://data.entur.no/public/insights"
+                      target="_blank"
+                      rel="noopener"
+                      >som du finner her</a
+                    >.
+                  </p>
+                </div>
+              </div>
+              <div class="linkcards">
+                <a
+                  class="linkcard"
+                  href="https://realtime-archive.entur.org/"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span><span class="dlnk">Real Time Archive</span> →</span></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://api.entur.io/graphql-explorer/estimated-timetables?query=%0A%20%20%23%20Welcome%20to%20GraphiQL%0A%20%20%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%0A%20%20%23%20GraphiQL%20is%20an%20in-browser%20IDE%20for%20writing%2C%20validating%2C%20and%0A%20%20%23%20testing%20GraphQL%20queries.%0A%20%20%23%0A%20%20%23%20Type%20queries%20into%20this%20side%20of%20the%20screen%2C%20and%20you%20will%0A%20%20%23%20see%20intelligent%20typeaheads%20aware%20of%20the%20current%20GraphQL%20type%20schema%20and%0A%20%20%23%20live%20syntax%20and%20validation%20errors%20highlighted%20within%20the%20text.%0A%20%20%23%0A%20%20%23%20To%20bring%20up%20the%20auto-complete%20at%20any%20point%2C%20just%20press%20Ctrl-Space.%0A%20%20%23%0A%20%20%23%20Press%20the%20run%20button%20above%2C%20or%20Cmd-Enter%20to%20execute%20the%20query%2C%20and%20the%20result%0A%20%20%23%20will%20appear%20in%20the%20pane%20to%20the%20right.%0A%20%20%23%0A%20%20%23%0A%20%20%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%20Example%20query%20-%20fetching%20all%20estimated%20timetables%20for%20codespaceID%3D%22GOA%22%2C%20lineID%3D%22GOA%3ALine%3A59%22%2C%20datedServiceJourneyID%3D%22GOA%3ADatedServiceJourney%3A3128_STV-SAS_24-08-23%22%0A%7B%0A%20%20estimatedVehicleJourneys%28%0A%20%20%20%20codespaceID%3A%20%22GOA%22%0A%20%20%20%20lineID%3A%20%22GOA%3ALine%3A59%22%0A%20%20%20%20%0A%20%20%20%20%23%20Extra%20journey%20IDs%20are%20currently%20just%20named%20dated%20service%20journey%20ID%0A%20%20%20%20datedServiceJourneyID%3A%20%22GOA%3ADatedServiceJourney%3A3128_STV-SAS_24-08-23%22%0A%20%20%20%20%0A%20%20%20%20%23%20Either%20a%20service%20journey%20ID%20with%20a%20service%20date%20or%20a%20dated%20service%20journey%20ID%20is%20required%0A%20%20%20%20%23%20serviceJourneyID%3A%20%22VYB%3AServiceJourney%3A3926c62058eb143fe5ac97578b6fdaeca3ae5c95_3205752%22%0A%20%20%20%20%23%20serviceDate%3A%20%222024-08-21%22%0A%20%20%29%20%7B%0A%20%20%20%20codespaceID%0A%20%20%20%20lineID%0A%20%20%20%20datedServiceJourneyID%0A%20%20%20%20serviceDate%0A%20%20%20%20serviceJourneyID%0A%20%20%20%20recordedAtTime%0A%20%20%20%20isCancelled%0A%20%20%7D%0A%7D%0A"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk">Real Time Archive</span> API i GraphQL
+                    IDE →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://data-quality.entur.no"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk">Kvalitetsdashboard</span> →</span
+                  ></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ────────────────────────── MOBILITETSTILBYDERES ROLLE ── -->
+      <section class="section section--alt" id="aktorenes-roller">
+        <div class="wrap">
+          <h2 class="h2">Mobilitetstilbyderes rolle</h2>
+          <div class="split" style="align-items: flex-start">
             <div>
-              <h3 class="h3">Data inn fra mobilitetstilbydere</h3>
               <p class="bodytext">
-                For å sende inn data i henhold til standarden må
-                mobilitetstilbydere bruke tjenester som kan samle inn dataene,
-                og produsere dette i SIRI formatet. De ulike formatene krever
-                ulike tjenester, og disse kan leveres av én eller flere
-                leverandører, gjennom de ansvarlige for kollektivtilbudet (PTA)
-                eller via en eller flere operatører (PTO). Leverandøren av disse
-                tjenestene kan være en tredjepart, kollektivselskapet selv eller
-                Entur.
+                For å levere inn og bruke sanntidsdata er det ofte involvert
+                både de som er ansvarlige for kollektivtilbudet regionalt,
+                transportoperatører og ulike systemleverandører. Det finnes
+                flere ulike modeller for hvordan dette samarbeidet er
+                strukturert, og det hender at samme organisasjon er både
+                tilbyder og operatør, eller at tilbyder også har utviklet egne
+                leverandørløsninger.
               </p>
             </div>
             <div class="figure-plain">
               <img
-                src="assets/img/diagram-data-inn.svg"
-                alt="Diagram: Data fra kjøretøy og manuell oppdatering produseres i SIRI VM/ET/SX-format, valideres, og sendes til sanntidshuben."
+                src="assets/img/hero-illustrasjon.svg"
+                alt="Diagram: roller rundt Nasjonalt Aksesspunkt (NAP) — PTO, PTA, leverandører og reisende."
+                width="671"
+                height="446"
               />
             </div>
           </div>
 
-          <div style="margin-top: 56px">
-            <h3 class="h3">Validering</h3>
+          <div class="subblock" style="margin-top: 48px">
+            <h3 class="h3">Ansvarlige for kollektivtilbudet – PTA</h3>
             <p class="bodytext">
-              For å sikre at innkommende data er korrekt og gir riktig
-              reiseinformasjon til de reisende, må dataen valideres før den
-              sendes videre.
-              <a class="dlnk" href="#validering-info"
-                >(Les mer om validering her.)</a
-              >
-              Inneholder dataen store feil som kan gi dirkete misvisende
-              informasjon til reisende, kan den stoppes fra å sendes videre til
-              reisesøket. Mindre feil i dataen vil ikke stoppes, men kan flagges
-              i valideringsrapporter, som et godt grunnlag for å forbedre
-              dataen.
+              Med ansvarlige for kollektivtilbudet menes de som i henhold til
+              håndbok N801 har løyve på vegne av staten til å tilby rutegående
+              persontransport. I Transmodel-standarden som SIRI er en del av,
+              kalles denne rollen gjerne PTA – Public Transport Authority.
+            </p>
+            <p class="bodytext">
+              PTA er ansvarlig for å sende inn sanntidsdata for rutene de
+              tilbyr, og for å sikre kommunikasjon ut til de reisende – gjerne
+              gjennom en app, informasjonstavler eller kundesenter.
+              Sanntidsinformasjon kan også gi PTA en bedre forståelse av
+              situasjonen når det oppstår avvik og det er behov for å følge opp
+              de reisende med oppdatert informasjon.
+            </p>
+            <p class="bodytext">
+              PTA kan også bruke historiske sanntidsdata til å ettergå hva som
+              faktisk ble levert av operatør, hva som skjedde på et gitt
+              tidspunkt i forbindelse med refusjonskrav fra kunder, og til å
+              planlegge og tilpasse rutetilbudet fremover.
             </p>
           </div>
 
-          <div style="margin-top: 40px">
-            <h3 class="h3">Samling og distribusjon av data - sanntidshuben</h3>
+          <div class="subblock">
+            <h3 class="h3">Operatører – PTO</h3>
             <p class="bodytext">
-              Sanntidshuben er en del av Nasjonalt aksesspunkt (NAP), og samler
-              inn SIRI SX-, VM- og ET-strømmer fra alle kollektivaktører som
-              sender inn denne dataen i Norge. Mer dokumentasjon om hvordan
-              tjenesten fungerer og eksempler på bruk,
-              <a
-                class="dlnk"
-                href="https://entur.atlassian.net/wiki/spaces/ROR/pages/1504412744/Anshar+-+SIRI+server"
-                target="_blank"
-                rel="noopener"
-                >kan leses her</a
-              >.
+              Operatører blir i Transmodel-standarden, som SIRI er en del av,
+              ofte referert til som PTO – Public Transport Operator.
             </p>
             <p class="bodytext">
-              All rådata i sanntidshuben er tilgjengelig for de som ønsker å
-              bruke den. Det er mulig å hente ut i dag i ulike formater - fra å
-              abonnere direkte på SIRI-strømmene, til mer lettvektsformat (REST
-              API), GTFS-RT format eller som data i BigQuery.
-              <a
-                class="dlnk"
-                href="https://developer.entur.no/open-data/realtime"
-                target="_blank"
-                rel="noopener"
-                >Les mer om dette her</a
-              >.
+              PTO inngår gjerne avtaler – eller anbud – med en PTA om å kjøre
+              ruter i et område på vegne av PTA. Det er fortsatt PTA som er
+              ansvarlig for å sende inn sanntidsdata, men ettersom data for ET
+              og VM kommer fra kjøretøyene, er PTO også involvert i
+              innsendingen. I noen tilfeller sendes dataen direkte fra PTO til
+              sanntidshuben, andre ganger via PTA. Sanntidsinformasjon kan gi et
+              oppdatert bilde av situasjonen ved avvik, og gjør det enklere å
+              dele informasjon med de reisende om forsinkelser, alternativ
+              transport eller kanselleringer.
+            </p>
+            <p class="bodytext">
+              PTO kan også bruke historisk sanntidsdata til å følge opp
+              kontrakter med PTA, samt til analyse og videreutvikling av
+              tilbudet.
             </p>
           </div>
 
-          <div style="margin-top: 40px">
-            <h3 class="h3">Data ut til konsumenter</h3>
+          <div class="subblock">
+            <h3 class="h3">Leverandører</h3>
             <p class="bodytext">
-              Ved å bruke ett av disse formatene kan dataen brukes til å bygge
-              ulike typer tjenester; rettet mot reisende og oppdatert
-              reiseinformasjon, for å gi kollektivtilbydere bedre oversikt når
-              det oppstår avvik, eller for å analysere og feilsøke i etterkant.
-              <a class="dlnk" href="#hente-ut-data"
-                >Les mer om de ulike formatene Entur tilbyr her</a
-              >.
+              Både PTA og PTO bruker gjerne ulike systemleverandører for å sende
+              inn og hente ut data. De fleste har ulike løsninger for hvilke
+              leverandører som gjør hvilke oppgaver, og noen PTAer har også bygd
+              egne løsninger.
             </p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ────────────────────────── ENTURS ROLLE ── -->
-    <section
-      class="section section--white"
-      id="enturs-rolle"
-      data-screen-label="Enturs rolle"
-    >
-      <div class="wrap">
-        <h2 class="h2">Enturs rolle</h2>
-        <p class="bodytext">
-          Ansvaret for innhenting, forvaltning og formidling av nasjonale
-          rutedata, som også omfatter sanntidsdata, er delegert til
-          Jernbanedirektoratet og Entur. Dette gir Entur en sentral rolle i å
-          samle inn og distribuere åpne data i sektoren. Samtidig er Entur en
-          pådriver for videreutvikling av den nordiske SIRI-profilen, og deltar
-          aktivt i samarbeid på tvers av nordiske land og i Europa.
-        </p>
-
-        <h3 class="h3" style="margin-top: 48px">Hva tilbyr Entur?</h3>
-        <div class="figure-plain" style="margin: 24px 0 56px">
-          <img
-            src="assets/img/diagram-hva-tilbyr-entur.svg"
-            alt="Oversiktsdiagram: Informere/dokumentere, Innsending/validering av data, Mottak/distribusjon og Bruk av data (analyseverktøy, dataformater, tjenester)."
-          />
-        </div>
-
-        <!-- panel: Informere og dokumentere -->
-        <div class="panel">
-          <div class="panel-grid">
-            <div>
-              <h3>Informere og dokumentere</h3>
-              <div class="ptext">
-                <p>
-                  I håndbok N801 er det beskrevet hva kollektivtilbydere må
-                  levere inn av data, og hvilken rolle Entur har i Norge. Entur
-                  har også en aktiv rolle i internasjonalt samarbeid om
-                  videreutvikling av SIRI-protokollene, og har bidratt mye til
-                  den nordiske profilen.
-                </p>
-                <p>
-                  Praktiske eksempler på hvordan meldingene skal se ut finnes på
-                  GitHub. (Les mer under Mottak og distribusjon)
-                </p>
+      <!-- ────────────────────────── KOMME I GANG ── -->
+      <section class="section section--white" id="komme-i-gang">
+        <div class="wrap">
+          <h2 class="h2">Hvordan komme i gang med å sende inn sanntidsdata?</h2>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div class="step-text">
+                Forutsetninger<span class="step-note"
+                  >For å sende inn sanntidsdata må det finnes plandata på
+                  linjene det skal sendes inn på, slik at dataen kan kobles mot
+                  denne.</span
+                >
               </div>
             </div>
-            <div class="linkcards">
-              <a
-                class="linkcard"
-                href="https://www.jernbanedirektoratet.no/metoder-og-standarder/handboker-for-samlet-kollektivtrafikk/"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  >Håndbok N801 på
-                  <span class="dlnk">Jernbanedirektoratets sider</span> →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://entur.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/Nordic+SIRI+Profile"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  >Den nordiske SIRI-profilen
-                  <span class="dlnk">åpent i Confluence</span> →</span
-                ></a
-              >
-            </div>
-          </div>
-        </div>
-
-        <!-- panel: Innsending av data -->
-        <div class="panel">
-          <div class="panel-grid">
-            <div>
-              <h3>Innsending av data</h3>
-              <div class="ptext">
-                <p>
-                  Entur tilbyr i dag et verktøy for innsending av SX-data og
-                  enkelte meldinger i ET-format. Grensesnittet lar brukeren
-                  knytte tekstlige beskjeder til avganger, stoppesteder eller
-                  linjer for å informere reisende ved avvik, samt legge inn
-                  kanselleringer og ekstraturer.
-                </p>
-                <p>
-                  For å kunne benytte tjenesten, må det etableres en avtale med
-                  Entur og opprettes en bruker knyttet til organisasjonen. For å
-                  bli partner med Entur, les mer på
-                  <a
-                    class="dlnk"
-                    href="https://www.entur.no"
-                    target="_blank"
-                    rel="noopener"
-                    >entur.no</a
-                  >
-                  eller ta kontakt på
-                  <a class="dlnk" href="mailto:kollektivdata@entur.org"
-                    >kollektivdata@entur.org</a
-                  >.
-                </p>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-text">
+                Velge riktig SIRI-format til formålet<span class="step-note"
+                  >De ulike formatene SX, ET og VM krever ulike systemer. Det er
+                  ingen avhengighet mellom formatene, og de kan sendes helt
+                  uavhengig av hverandre.</span
+                >
               </div>
             </div>
-            <div class="linkcards">
-              <a
-                class="linkcard"
-                href="https://avvik.entur.org"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  >Avvikstjenesten -
-                  <span class="dlnk">avvik.entur.org</span> →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://entur.atlassian.net/wiki/spaces/PUBLIC/pages/1444380841/User+guide+Deviation+messages"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk">Brukerveiledning for tjenesten</span>
-                  →</span
-                ></a
-              >
-            </div>
           </div>
-        </div>
 
-        <!-- panel: Validering -->
-        <div class="panel" id="validering-info">
-          <div class="panel-grid">
-            <div>
-              <h3>Validering</h3>
-              <div class="ptext">
-                <p>
-                  Valideringen sjekker formatet på meldingene og noe logikk, for
-                  å vurdere om dette er data som kan leses korrekt og vil vise
-                  riktig informasjon til de reisende. Selve grensesnittet viser
-                  bare hva som vil gå gjennom og hva som vil feile, og feil blir
-                  ikke forkastet her. Det som er kategorisert som alvorlige
-                  feil, blir forkastet i selve sanntidstjenesten eller i
-                  reisesøkmotoren (OTP). Valideringsrapportene er åpne for alle,
-                  og alle som sender inn SX-, VM- og/eller ET-meldinger kan
-                  bruke verktøyet til å se om dataene de sender inn feiler eller
-                  ikke. Hva de ulike feilmeldingene betyr, og hvordan man søker
-                  opp sine data er beskrevet i brukerveiledningen.
-                </p>
-              </div>
-            </div>
-            <div class="linkcards">
-              <a
-                class="linkcard"
-                href="https://api.entur.io/realtime/v1/validation"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  >Tjeneste for å hente ut
-                  <span class="dlnk">valideringrapporter</span> →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://entur.atlassian.net/wiki/spaces/PUBLIC/pages/1658159131/Brukerveiledning+SIRI-profilvalidator"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk">Brukerveiledning for tjenesten</span>
-                  →</span
-                ></a
-              >
-            </div>
-          </div>
-        </div>
-
-        <!-- panel: Mottak og distribusjon -->
-        <div class="panel">
-          <div class="panel-grid">
-            <div>
-              <h3>Mottak og distribusjon</h3>
-              <div class="ptext">
-                <p>
-                  Sanntidshuben tar imot rundt 70 strømmer med ET-, VM- og
-                  SX-meldinger fra aktører i Norge, og gjør dem tilgjengelig på
-                  tvers av alle som sender inn. Tjenesten er et åpen
-                  kildekode-prosjekt, Anshar, tilgjengelig på GitHub sammen med
-                  dokumentasjon på hvordan den mottar og sender data i henhold
-                  til SIRI-protokollen. På GitHub finnes det også et
-                  eksempeloppsett av en applikasjon som viser i praksis hvordan
-                  kommunikasjon mellom tjenesten og innsender kan se ut, samt
-                  eksempler på meldinger i de ulike formatene.
-                </p>
-              </div>
-            </div>
-            <div class="linkcards">
-              <a
-                class="linkcard"
-                href="https://github.com/entur/anshar"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk">Sanntidshuben (Anshar) i GitHub</span>
-                  →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://github.com/entur/anshar/blob/master/Subscription-lifecycle.md"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  >Dokumentasjon av
-                  <span class="dlnk"
-                    >mottak/distribusjon til sanntidshuben</span
-                  >
-                  →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://github.com/entur/siri-service-example"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk"
-                    >Eksempeloppsett mottak/distribusjonstjeneste</span
-                  >
-                  →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://github.com/entur/profile-examples/tree/master/siri"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk">Eksempler på meldinger</span> i
-                  SIRI-formater i GitHub →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://github.com/entur/siri-java-model"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  >Bibliotek/datamodell fra XML schema i SIRI standarden
-                  <span class="dlnk">i GitHub</span> →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://mvnrepository.com/artifact/org.entur/siri-java-model"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  >Bibliotek/datamodell fra XML schema i SIRI standarden
-                  <span class="dlnk">i Maven repository</span> →</span
-                ></a
-              >
-            </div>
-          </div>
-        </div>
-
-        <!-- panel: Hente ut data -->
-        <div class="panel" id="hente-ut-data">
-          <div class="panel-grid">
-            <div>
-              <h3>Hente ut data</h3>
-              <div class="ptext">
-                <p>
-                  All data er åpent tilgjengelig fra sanntidshuben, og Entur
-                  tilbyr ulike formater for å konsumere den. Det er mulig å
-                  abonnere direkte på ET-, VM- og SX-strømmene i SIRI-format.
-                  Det er disse strømmene som brukes videre i reisesøket, sammen
-                  med plandata og andre datakilder. Det tilbys også et SIRI Lite
-                  REST API, for periodisk uthenting av data. GTFS-RT er formatet
-                  blant annet Google Maps bruker, og er et lettvektsformat med
-                  mindre rik data. Dataen kan også lastes ned eller brukes
-                  direkte fra BigQuery til for eksempel analyseformål. Hvordan
-                  ta i bruk disse formatene er beskrevet på Enturs
-                  utviklerportal eller dataportal.
-                </p>
-              </div>
-            </div>
-            <div class="linkcards">
-              <a
-                class="linkcard"
-                href="https://developer.entur.no/open-data/realtime"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk">SIRI ET-, SX- og VM-strømmer</span> i
-                  utviklerportalen →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://developer.entur.no/open-data/realtime"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk">SIRI Lite REST API</span> i
-                  utviklerportalen →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://developer.entur.no/open-data/realtime"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk">GTFS-RT-format</span> i utviklerportalen
-                  →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://data.entur.no/public/datasets/realtime_siri_et"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk">Data i BigQuery</span> via dataportalen
-                  →</span
-                ></a
-              >
-            </div>
-          </div>
-        </div>
-
-        <!-- panel: Spesifikke tjenester -->
-        <div class="panel">
-          <div class="panel-grid">
-            <div>
-              <h3>Spesifikke tjenester bygget på sanntidsdata</h3>
-              <div class="ptext">
-                <p>
-                  Entur tilbyr et API som kan sende pushvarsler på gitte
-                  strekninger til reisende i sin valgte reiseapp. APIet er
-                  dokumentert på utviklerportalen, og det er også bygget et
-                  grensesnitt som viser hva abonnenter vil se.
-                </p>
-                <p>
-                  For enklere bruk av VM- og ET-data om kjøretøyposisjoner,
-                  fyllingsgrad og estimerte ankomsttider er det utviklet et eget
-                  API som lar deg vise sanntidsdata direkte til en sluttbruker.
-                  Det finnes også et grensesnitt som viser hvordan denne dataen
-                  kan brukes i praksis.
-                </p>
-              </div>
-            </div>
-            <div class="linkcards">
-              <a
-                class="linkcard"
-                href="https://developer.entur.no/docs/partner-services/deviations"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk">API for pushvarsler</span> i
-                  utviklerportalen →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://api.entur.io/realtime-deviations/v1/demo/subscriptions"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk"
-                    >Demonstrasjon av pushvarsel-tjenesten</span
-                  >
-                  →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://developer.entur.org/pages-real-time-vehicles"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk">API for kjøretøyposisjoner</span> i
-                  utviklerportalen →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://vehicle-map.entur.org"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk"
-                    >Demonstrasjon av API for kjøretøysposisjoner - Vehicle
-                    Map</span
-                  >
-                  →</span
-                ></a
-              >
-            </div>
-          </div>
-        </div>
-
-        <!-- panel: Analysere data -->
-        <div class="panel" id="analysere-data">
-          <div class="panel-grid">
-            <div>
-              <h3>Analysere data</h3>
-              <div class="ptext">
-                <p>
-                  Real Time Archive er en tjeneste som gir et bilde av hvilke
-                  data som faktisk ble sendt fra sanntidshuben til
-                  reisesøkmotoren. Tjenesten tilbys både som et API og som et
-                  grensesnitt. Den viser kun ET-meldinger, men det er mulig å
-                  søke opp avganger fra alle kollektivtilbydere, og se hver
-                  enkelt ET-melding som ble sendt inn til sanntidshuben. Dette
-                  gjør det enklere å gjenskape situasjonen slik den var på et
-                  gitt tidspunkt, og kan hjelpe aktørene å forstå hva som ble
-                  vist til de reisende, og hva som kan ha gått galt hvis
-                  reisende opplever å få feil informasjon.
-                </p>
-                <p>
-                  Kvalitetsdashbordet er bygget på historiske data fra BigQuery
-                  og viser et overordnet bilde av kvaliteten på sanntidsdata fra
-                  de ulike aktørene, for hver av de ulike strømmene. Det er også
-                  mulig å gå mer i detalj og se på ulike deler av dataen i hver
-                  enkelt strøm. Dashbordet kan også brukes til å måle effekten
-                  av eventuelle tiltak for å bedre kvaliteten.
-                </p>
-                <p>
-                  Det finnes flere dashboard å utforske på dataportalen,
-                  <a
-                    class="dlnk"
-                    href="https://data.entur.no/public/insights"
-                    target="_blank"
-                    rel="noopener"
-                    >som du finner her</a
-                  >.
-                </p>
-              </div>
-            </div>
-            <div class="linkcards">
-              <a
-                class="linkcard"
-                href="https://realtime-archive.entur.org/"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span><span class="dlnk">Real Time Archive</span> →</span></a
-              >
-              <a
-                class="linkcard"
-                href="https://api.entur.io/graphql-explorer/estimated-timetables?query=%0A%20%20%23%20Welcome%20to%20GraphiQL%0A%20%20%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%0A%20%20%23%20GraphiQL%20is%20an%20in-browser%20IDE%20for%20writing%2C%20validating%2C%20and%0A%20%20%23%20testing%20GraphQL%20queries.%0A%20%20%23%0A%20%20%23%20Type%20queries%20into%20this%20side%20of%20the%20screen%2C%20and%20you%20will%0A%20%20%23%20see%20intelligent%20typeaheads%20aware%20of%20the%20current%20GraphQL%20type%20schema%20and%0A%20%20%23%20live%20syntax%20and%20validation%20errors%20highlighted%20within%20the%20text.%0A%20%20%23%0A%20%20%23%20To%20bring%20up%20the%20auto-complete%20at%20any%20point%2C%20just%20press%20Ctrl-Space.%0A%20%20%23%0A%20%20%23%20Press%20the%20run%20button%20above%2C%20or%20Cmd-Enter%20to%20execute%20the%20query%2C%20and%20the%20result%0A%20%20%23%20will%20appear%20in%20the%20pane%20to%20the%20right.%0A%20%20%23%0A%20%20%23%0A%20%20%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%20Example%20query%20-%20fetching%20all%20estimated%20timetables%20for%20codespaceID%3D%22GOA%22%2C%20lineID%3D%22GOA%3ALine%3A59%22%2C%20datedServiceJourneyID%3D%22GOA%3ADatedServiceJourney%3A3128_STV-SAS_24-08-23%22%0A%7B%0A%20%20estimatedVehicleJourneys%28%0A%20%20%20%20codespaceID%3A%20%22GOA%22%0A%20%20%20%20lineID%3A%20%22GOA%3ALine%3A59%22%0A%20%20%20%20%0A%20%20%20%20%23%20Extra%20journey%20IDs%20are%20currently%20just%20named%20dated%20service%20journey%20ID%0A%20%20%20%20datedServiceJourneyID%3A%20%22GOA%3ADatedServiceJourney%3A3128_STV-SAS_24-08-23%22%0A%20%20%20%20%0A%20%20%20%20%23%20Either%20a%20service%20journey%20ID%20with%20a%20service%20date%20or%20a%20dated%20service%20journey%20ID%20is%20required%0A%20%20%20%20%23%20serviceJourneyID%3A%20%22VYB%3AServiceJourney%3A3926c62058eb143fe5ac97578b6fdaeca3ae5c95_3205752%22%0A%20%20%20%20%23%20serviceDate%3A%20%222024-08-21%22%0A%20%20%29%20%7B%0A%20%20%20%20codespaceID%0A%20%20%20%20lineID%0A%20%20%20%20datedServiceJourneyID%0A%20%20%20%20serviceDate%0A%20%20%20%20serviceJourneyID%0A%20%20%20%20recordedAtTime%0A%20%20%20%20isCancelled%0A%20%20%7D%0A%7D%0A"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk">Real Time Archive</span> API i GraphQL IDE
-                  →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://data-quality.entur.no"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span><span class="dlnk">Kvalitetsdashboard</span> →</span></a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ────────────────────────── MOBILITETSTILBYDERES ROLLE ── -->
-    <section
-      class="section section--alt"
-      id="aktorenes-roller"
-      data-screen-label="Mobilitetstilbyderes rolle"
-    >
-      <div class="wrap">
-        <h2 class="h2">Mobilitetstilbyderes rolle</h2>
-        <div class="split" style="align-items: flex-start">
-          <div>
-            <p class="bodytext">
-              For å levere inn og bruke sanntidsdata er det ofte involvert både
-              de som er ansvarlige for kollektivtilbudet regionalt,
-              transportoperatører og ulike systemleverandører. Det finnes flere
-              ulike modeller for hvordan dette samarbeidet er strukturert, og
-              det hender at samme organisasjon er både tilbyder og operatør,
-              eller at tilbyder også har utviklet egne leverandørløsninger.
-            </p>
-          </div>
-          <div class="figure-plain">
+          <div class="steps-figure">
             <img
-              src="assets/img/hero-illustrasjon.svg"
-              alt="Diagram: roller rundt Nasjonalt Aksesspunkt (NAP) — PTO, PTA, leverandører og reisende."
+              src="assets/img/diagram-komme-i-gang.svg"
+              alt="Diagram: plandata, data fra kjøretøy og manuell oppdatering produseres i SIRI VM/ET/SX-format, valideres og sendes til sanntidshuben."
+              width="1061"
+              height="522"
+              loading="lazy"
+              decoding="async"
             />
           </div>
-        </div>
 
-        <div class="subblock" style="margin-top: 48px">
-          <h3 class="h3">Ansvarlige for kollektivtilbudet – PTA</h3>
-          <p class="bodytext">
-            Med ansvarlige for kollektivtilbudet menes de som i henhold til
-            håndbok N801 har løyve på vegne av staten til å tilby rutegående
-            persontransport. I Transmodel-standarden som SIRI er en del av,
-            kalles denne rollen gjerne PTA – Public Transport Authority.
-          </p>
-          <p class="bodytext">
-            PTA er ansvarlig for å sende inn sanntidsdata for rutene de tilbyr,
-            og for å sikre kommunikasjon ut til de reisende – gjerne gjennom en
-            app, informasjonstavler eller kundesenter. Sanntidsinformasjon kan
-            også gi PTA en bedre forståelse av situasjonen når det oppstår avvik
-            og det er behov for å følge opp de reisende med oppdatert
-            informasjon.
-          </p>
-          <p class="bodytext">
-            PTA kan også bruke historiske sanntidsdata til å ettergå hva som
-            faktisk ble levert av operatør, hva som skjedde på et gitt tidspunkt
-            i forbindelse med refusjonskrav fra kunder, og til å planlegge og
-            tilpasse rutetilbudet fremover.
-          </p>
-        </div>
-
-        <div class="subblock">
-          <h3 class="h3">Operatører – PTO</h3>
-          <p class="bodytext">
-            Operatører blir i Transmodel-standarden, som SIRI er en del av, ofte
-            referert til som PTO – Public Transport Operator.
-          </p>
-          <p class="bodytext">
-            PTO inngår gjerne avtaler – eller anbud – med en PTA om å kjøre
-            ruter i et område på vegne av PTA. Det er fortsatt PTA som er
-            ansvarlig for å sende inn sanntidsdata, men ettersom data for ET og
-            VM kommer fra kjøretøyene, er PTO også involvert i innsendingen. I
-            noen tilfeller sendes dataen direkte fra PTO til sanntidshuben,
-            andre ganger via PTA. Sanntidsinformasjon kan gi et oppdatert bilde
-            av situasjonen ved avvik, og gjør det enklere å dele informasjon med
-            de reisende om forsinkelser, alternativ transport eller
-            kanselleringer.
-          </p>
-          <p class="bodytext">
-            PTO kan også bruke historisk sanntidsdata til å følge opp kontrakter
-            med PTA, samt til analyse og videreutvikling av tilbudet.
-          </p>
-        </div>
-
-        <div class="subblock">
-          <h3 class="h3">Leverandører</h3>
-          <p class="bodytext">
-            Både PTA og PTO bruker gjerne ulike systemleverandører for å sende
-            inn og hente ut data. De fleste har ulike løsninger for hvilke
-            leverandører som gjør hvilke oppgaver, og noen PTAer har også bygd
-            egne løsninger.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ────────────────────────── KOMME I GANG ── -->
-    <section
-      class="section section--white"
-      id="komme-i-gang"
-      data-screen-label="Komme i gang"
-    >
-      <div class="wrap">
-        <h2 class="h2">Hvordan komme i gang med å sende inn sanntidsdata?</h2>
-        <div class="steps">
-          <div class="step">
-            <div class="step-num">1</div>
-            <div class="step-text">
-              Forutsetninger<span class="step-note"
-                >For å sende inn sanntidsdata må det finnes plandata på linjene
-                det skal sendes inn på, slik at dataen kan kobles mot
-                denne.</span
-              >
-            </div>
+          <div class="step-sub">
+            <p>
+              <strong>VM:</strong> Krever en sender som sier hvor kjøretøyet
+              befinner seg, en måte å koble dette til planlagt avgang, og et
+              system som kan omforme denne dataen til SIRI VM-formatet. Dette
+              kan leveres av én eller flere leverandører.
+            </p>
+            <p>
+              <strong>ET:</strong> Krever også en sender som sier hvor
+              kjøretøyet befinner seg og kobling mot plandata, en prognosemotor
+              som kan estimere beregnet ankomst i forhold til rutetid, og et
+              system som kan omforme dette til SIRI ET-formatet. Dette kan
+              leveres av én eller flere leverandører.
+            </p>
+            <p>
+              <strong>SX:</strong> Krever et grensesnitt hvor det kan skrives
+              inn en tekstlig melding som kan kobles mot en avgang eller
+              stoppested i plandata, og et system som kan omforme dette til SIRI
+              SX-formatet. Dette kan leveres av én eller flere leverandører.
+            </p>
           </div>
-          <div class="step">
-            <div class="step-num">2</div>
-            <div class="step-text">
-              Velge riktig SIRI-format til formålet<span class="step-note"
-                >De ulike formatene SX, ET og VM krever ulike systemer. Det er
-                ingen avhengighet mellom formatene, og de kan sendes helt
-                uavhengig av hverandre.</span
-              >
+
+          <div class="steps" style="margin-top: 8px">
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-text">
+                Opprette datapipeline<span class="step-note"
+                  >For at dataen skal mottas i Sanntidshuben, må Entur opprette
+                  en datapipeline, en for hvert format. Disse knyttes til den
+                  samme organisasjonen som allerede sender inn plandata. Dette
+                  gjøres først i testmiljøer for å se om mottaket fungerer, før
+                  det går i produksjon.</span
+                >
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">4</div>
+              <div class="step-text">
+                Konsumere data<span class="step-note"
+                  >Dataen kan nå konsumeres i ulike formater, som rådata,
+                  gjennom analyseverktøy eller APIer. Gjennom reisesøk via
+                  Jouney Planner vil de også kobles mot plandata igjen, og gi et
+                  bilde av hva den reisende ser i sine søk.</span
+                >
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="steps-figure">
-          <img
-            src="assets/img/diagram-komme-i-gang.svg"
-            alt="Diagram: plandata, data fra kjøretøy og manuell oppdatering produseres i SIRI VM/ET/SX-format, valideres og sendes til sanntidshuben."
-          />
-        </div>
-
-        <div class="step-sub">
-          <p>
-            <strong>VM:</strong> Krever en sender som sier hvor kjøretøyet
-            befinner seg, en måte å koble dette til planlagt avgang, og et
-            system som kan omforme denne dataen til SIRI VM-formatet. Dette kan
-            leveres av én eller flere leverandører.
-          </p>
-          <p>
-            <strong>ET:</strong> Krever også en sender som sier hvor kjøretøyet
-            befinner seg og kobling mot plandata, en prognosemotor som kan
-            estimere beregnet ankomst i forhold til rutetid, og et system som
-            kan omforme dette til SIRI ET-formatet. Dette kan leveres av én
-            eller flere leverandører.
-          </p>
-          <p>
-            <strong>SX:</strong> Krever et grensesnitt hvor det kan skrives inn
-            en tekstlig melding som kan kobles mot en avgang eller stoppested i
-            plandata, og et system som kan omforme dette til SIRI SX-formatet.
-            Dette kan leveres av én eller flere leverandører.
-          </p>
-        </div>
-
-        <div class="steps" style="margin-top: 8px">
-          <div class="step">
-            <div class="step-num">3</div>
-            <div class="step-text">
-              Opprette datapipeline<span class="step-note"
-                >For at dataen skal mottas i Sanntidshuben, må Entur opprette en
-                datapipeline, en for hvert format. Disse knyttes til den samme
-                organisasjonen som allerede sender inn plandata. Dette gjøres
-                først i testmiljøer for å se om mottaket fungerer, før det går i
-                produksjon.</span
-              >
-            </div>
-          </div>
-          <div class="step">
-            <div class="step-num">4</div>
-            <div class="step-text">
-              Konsumere data<span class="step-note"
-                >Dataen kan nå konsumeres i ulike formater, som rådata, gjennom
-                analyseverktøy eller APIer. Gjennom reisesøk via Jouney Planner
-                vil de også kobles mot plandata igjen, og gi et bilde av hva den
-                reisende ser i sine søk.</span
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ────────────────────────── ØKE KVALITETEN ── -->
-    <section
-      class="section section--white"
-      id="oke-kvalitet"
-      data-screen-label="Øke kvaliteten"
-    >
-      <div class="wrap">
-        <h2 class="h2">
-          Hvordan øke kvaliteten på informasjon ut til de reisende?
-        </h2>
-        <p class="bodytext">
-          Når strømmene er på plass, og sanntidsdata kan sendes ut til de
-          reisende gjennom reisesøket, er det en kontinuerlig jobb å sikre
-          kvaliteten på dataen for å gi et mest mulig presist bilde av
-          situasjonen til de reisende. Det er også relevant å ha så korrekt data
-          som mulig som et solid grunnlag for å videreutvikle og tilpasse
-          tilbudet sitt.
-        </p>
-        <p class="bodytext">
-          Enkelte feilkilder gjør at sanntidsdata ikke vises i det hele tatt til
-          de reisende, mens det i andre tilfeller blir liggende estimater eller
-          beskjeder på en avgang som ikke lenger er gyldige.
-        </p>
-
-        <div class="panel panel--examples" style="margin-top: 32px">
-          <h3>Eksempler på mulige årsaker til feil</h3>
-          <h4>Mottar ikke sanntid i det hele tatt</h4>
-          <ul>
-            <li>
-              Sanntiden blir ikke koblet mot en planlagt avgang, av ulike
-              årsaker:
-              <ul>
-                <li>Turen blir ikke startet i kjøretøy</li>
-                <li>Feil tur blir startet i kjøretøy</li>
-                <li>Plandata mangler for turen</li>
-                <li>
-                  Plandata og sanntidsdata er ikke synkronisert og det oppstår
-                  avvik i datagrunnlaget
-                </li>
-              </ul>
-            </li>
-            <li>
-              Dataen feiler et sted mellom kjøretøy og system, og blir ikke
-              sendt til sanntidshuben
-            </li>
-          </ul>
-          <h4>
-            Mottar ikke oppdateringer i sanntid - eldre estimater eller
-            beskjeder blir stående
-          </h4>
-          <ul>
-            <li>
-              Kritisk feil i data - én eller flere meldinger blir forkastet og
-              vises ikke i reisseøket
-              <ul>
-                <li>
-                  Mangler oppdateringer om estimert ankomst - mindre presist
-                </li>
-                <li>
-                  Mangler oppdateringer om andre faktorer som påvirker reisen -
-                  f.eks kanselleringer
-                </li>
-              </ul>
-            </li>
-            <li>
-              Tekstlige beskjeder er ikke fjernet, selv om de ikke lengre er
-              relevante.
-            </li>
-          </ul>
-        </div>
-
-        <div class="subblock" style="margin-top: 48px">
-          <h3 class="h3">Feilsøking</h3>
+      <!-- ────────────────────────── ØKE KVALITETEN ── -->
+      <section class="section section--white" id="oke-kvalitet">
+        <div class="wrap">
+          <h2 class="h2">
+            Hvordan øke kvaliteten på informasjon ut til de reisende?
+          </h2>
           <p class="bodytext">
-            Valideringstjenesten
-            <a class="dlnk" href="#validering-info"
-              >(les mer om validering her)</a
-            >
-            kan brukes til å utforske hvilke kritiske feil som gjør at dataen
-            aldri blir tatt med i reisesøket, og gir også informasjon om mindre
-            alvorlige feil som også kan utbedres. Dette kan være et naturlig
-            sted å starte feilsøking hvis enkelte data ikke blir tatt med inn i
-            reisesøk.
+            Når strømmene er på plass, og sanntidsdata kan sendes ut til de
+            reisende gjennom reisesøket, er det en kontinuerlig jobb å sikre
+            kvaliteten på dataen for å gi et mest mulig presist bilde av
+            situasjonen til de reisende. Det er også relevant å ha så korrekt
+            data som mulig som et solid grunnlag for å videreutvikle og tilpasse
+            tilbudet sitt.
           </p>
           <p class="bodytext">
-            Real Time Archive
-            <a class="dlnk" href="#analysere-data"
-              >(les mer om analyseverktøyene her)</a
-            >
-            viser en kopi av dataen som sendes til Open Trip Planner, som sammen
-            med plandata er grunnlaget for et reisesøk. Dette kan være et fint
-            sted å feilsøke i etterkant for å forstå hvilken informasjon som ble
-            delt med de reisende. Det kan være enklere å forstå hvilke
-            konsekvenser feil i innsending av data kan få for de reisende i
-            praksis. Foreløpig viser denne tjenesten kun ET-data, ikke SX- og
-            VM-data.
+            Enkelte feilkilder gjør at sanntidsdata ikke vises i det hele tatt
+            til de reisende, mens det i andre tilfeller blir liggende estimater
+            eller beskjeder på en avgang som ikke lenger er gyldige.
           </p>
-        </div>
 
-        <div class="subblock">
-          <h3 class="h3">Kvalitetsrapport</h3>
-          <p class="bodytext">
-            Kvalitetsdashboardet
-            <a
-              class="dlnk"
-              href="https://data-quality.entur.no"
-              target="_blank"
-              rel="noopener"
-              >(les mer her)</a
-            >
-            gir en god oversikt over kvaliteten på data som er sendt inn, og
-            hvor korrekt reiseinformasjon den gir. Den kan filtreres på de ulike
-            strømmene, og kan være et godt utgangspunkt for å forstå hva som
-            påvirker den overordnede kvaliteten, og hvilke områder det kan være
-            lurt å prioritere. Det kan også brukes til å måle over tid om tiltak
-            faktisk fører til økt kvalitet.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ────────────────────────── DOKUMENTASJON OG TJENESTER ── -->
-    <section
-      class="section section--alt"
-      id="dokumentasjon"
-      data-screen-label="Dokumentasjon og tjenester"
-    >
-      <div class="wrap">
-        <h2 class="h2">Dokumentasjon og tjenester</h2>
-        <p class="bodytext bodytext--narrow">
-          Dette er en enkel oversikt over all dokumentasjon og tilgjengelige
-          tjenester innen sanntid som Entur leverer. For å forstå mer om hva
-          tjenestene gjør, les mer under
-          <a class="dlnk" href="#enturs-rolle">Hva tilbyr Entur</a>.
-        </p>
-
-        <div class="doclist">
-          <div class="docgroup">
-            <h3 class="h4">Informere og dokumentere</h3>
-            <div class="linkcards">
-              <a
-                class="linkcard"
-                href="https://www.jernbanedirektoratet.no/metoder-og-standarder/handboker-for-samlet-kollektivtrafikk/"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  >Håndbok N801 på
-                  <span class="dlnk">Jernbanedirektoratets sider</span> →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://entur.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/Nordic+SIRI+Profile"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  >Den nordiske SIRI-profilen
-                  <span class="dlnk">åpent i Confluence</span> →</span
-                ></a
-              >
-            </div>
+          <div class="panel panel--examples" style="margin-top: 32px">
+            <h3>Eksempler på mulige årsaker til feil</h3>
+            <h4>Mottar ikke sanntid i det hele tatt</h4>
+            <ul>
+              <li>
+                Sanntiden blir ikke koblet mot en planlagt avgang, av ulike
+                årsaker:
+                <ul>
+                  <li>Turen blir ikke startet i kjøretøy</li>
+                  <li>Feil tur blir startet i kjøretøy</li>
+                  <li>Plandata mangler for turen</li>
+                  <li>
+                    Plandata og sanntidsdata er ikke synkronisert og det oppstår
+                    avvik i datagrunnlaget
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Dataen feiler et sted mellom kjøretøy og system, og blir ikke
+                sendt til sanntidshuben
+              </li>
+            </ul>
+            <h4>
+              Mottar ikke oppdateringer i sanntid - eldre estimater eller
+              beskjeder blir stående
+            </h4>
+            <ul>
+              <li>
+                Kritisk feil i data - én eller flere meldinger blir forkastet og
+                vises ikke i reisseøket
+                <ul>
+                  <li>
+                    Mangler oppdateringer om estimert ankomst - mindre presist
+                  </li>
+                  <li>
+                    Mangler oppdateringer om andre faktorer som påvirker reisen
+                    - f.eks kanselleringer
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Tekstlige beskjeder er ikke fjernet, selv om de ikke lengre er
+                relevante.
+              </li>
+            </ul>
           </div>
 
-          <div class="docgroup">
-            <h3 class="h4">Innsending av data</h3>
-            <div class="linkcards">
-              <a
-                class="linkcard"
-                href="https://avvik.entur.org"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  >Avvikstjenesten -
-                  <span class="dlnk">avvik.entur.org</span> →</span
-                ></a
+          <div class="subblock" style="margin-top: 48px">
+            <h3 class="h3">Feilsøking</h3>
+            <p class="bodytext">
+              Valideringstjenesten
+              <a class="dlnk" href="#validering-info"
+                >(les mer om validering her)</a
               >
-              <a
-                class="linkcard"
-                href="https://entur.atlassian.net/wiki/spaces/PUBLIC/pages/1444380841/User+guide+Deviation+messages"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk">Brukerveiledning for tjenesten</span>
-                  →</span
-                ></a
+              kan brukes til å utforske hvilke kritiske feil som gjør at dataen
+              aldri blir tatt med i reisesøket, og gir også informasjon om
+              mindre alvorlige feil som også kan utbedres. Dette kan være et
+              naturlig sted å starte feilsøking hvis enkelte data ikke blir tatt
+              med inn i reisesøk.
+            </p>
+            <p class="bodytext">
+              Real Time Archive
+              <a class="dlnk" href="#analysere-data"
+                >(les mer om analyseverktøyene her)</a
               >
-            </div>
+              viser en kopi av dataen som sendes til Open Trip Planner, som
+              sammen med plandata er grunnlaget for et reisesøk. Dette kan være
+              et fint sted å feilsøke i etterkant for å forstå hvilken
+              informasjon som ble delt med de reisende. Det kan være enklere å
+              forstå hvilke konsekvenser feil i innsending av data kan få for de
+              reisende i praksis. Foreløpig viser denne tjenesten kun ET-data,
+              ikke SX- og VM-data.
+            </p>
           </div>
 
-          <div class="docgroup">
-            <h3 class="h4">Validering</h3>
-            <div class="linkcards">
+          <div class="subblock">
+            <h3 class="h3">Kvalitetsrapport</h3>
+            <p class="bodytext">
+              Kvalitetsdashboardet
               <a
-                class="linkcard"
-                href="https://api.entur.io/realtime/v1/validation"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  >Tjeneste for å hente ut
-                  <span class="dlnk">valideringrapporter</span> →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://entur.atlassian.net/wiki/spaces/PUBLIC/pages/1658159131/Brukerveiledning+SIRI-profilvalidator"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk">Brukerveiledning for tjenesten</span>
-                  →</span
-                ></a
-              >
-            </div>
-          </div>
-
-          <div class="docgroup">
-            <h3 class="h4">Mottak og distribusjon</h3>
-            <div class="linkcards">
-              <a
-                class="linkcard"
-                href="https://github.com/entur/anshar"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk">Sanntidshuben (Anshar) i GitHub</span>
-                  →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://github.com/entur/anshar/blob/master/Subscription-lifecycle.md"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  >Dokumentasjon av
-                  <span class="dlnk"
-                    >mottak/distribusjon til sanntidshuben</span
-                  >
-                  →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://github.com/entur/siri-service-example"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk"
-                    >Eksempeloppsett mottak/distribusjonstjeneste</span
-                  >
-                  →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://github.com/entur/profile-examples/tree/master/siri"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk">Eksempler på meldinger</span> i
-                  SIRI-formater i GitHub →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://github.com/entur/siri-java-model"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  >Bibliotek/datamodell fra XML schema i SIRI standarden
-                  <span class="dlnk">i GitHub</span> →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://mvnrepository.com/artifact/org.entur/siri-java-model"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  >Bibliotek/datamodell fra XML schema i SIRI standarden
-                  <span class="dlnk">i Maven repository</span> →</span
-                ></a
-              >
-            </div>
-          </div>
-
-          <div class="docgroup">
-            <h3 class="h4">Hente ut data</h3>
-            <div class="linkcards">
-              <a
-                class="linkcard"
-                href="https://developer.entur.no/open-data/realtime"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk">SIRI ET-, SX- og VM-strømmer</span> i
-                  utviklerportalen →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://developer.entur.no/open-data/realtime"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk">SIRI Lite REST API</span> i
-                  utviklerportalen →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://developer.entur.no/open-data/realtime"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk">GTFS-RT-format</span> i utviklerportalen
-                  →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://data.entur.no/public/datasets/realtime_siri_et"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk">Data i BigQuery</span> via dataportalen
-                  →</span
-                ></a
-              >
-            </div>
-          </div>
-
-          <div class="docgroup">
-            <h3 class="h4">Spesifikke tjenester bygget på sanntidsdata</h3>
-            <div class="linkcards">
-              <a
-                class="linkcard"
-                href="https://developer.entur.no/docs/partner-services/deviations"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk">API for pushvarsler</span> i
-                  utviklerportalen →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://api.entur.io/realtime-deviations/v1/demo/subscriptions"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk"
-                    >Demonstrasjon av pushvarsel-tjenesten</span
-                  >
-                  →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://developer.entur.org/pages-real-time-vehicles"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk">API for kjøretøyposisjoner</span> i
-                  utviklerportalen →</span
-                ></a
-              >
-              <a
-                class="linkcard"
-                href="https://vehicle-map.entur.org"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk"
-                    >Demonstrasjon av API for kjøretøysposisjoner - Vehicle
-                    Map</span
-                  >
-                  →</span
-                ></a
-              >
-            </div>
-          </div>
-
-          <div class="docgroup">
-            <h3 class="h4">Analysere data</h3>
-            <div class="linkcards">
-              <a
-                class="linkcard"
-                href="https://realtime-archive.entur.org/"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span><span class="dlnk">Real Time Archive</span> →</span></a
-              >
-              <a
-                class="linkcard"
-                href="https://api.entur.io/graphql-explorer/estimated-timetables?query=%0A%20%20%23%20Welcome%20to%20GraphiQL%0A%20%20%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%0A%20%20%23%20GraphiQL%20is%20an%20in-browser%20IDE%20for%20writing%2C%20validating%2C%20and%0A%20%20%23%20testing%20GraphQL%20queries.%0A%20%20%23%0A%20%20%23%20Type%20queries%20into%20this%20side%20of%20the%20screen%2C%20and%20you%20will%0A%20%20%23%20see%20intelligent%20typeaheads%20aware%20of%20the%20current%20GraphQL%20type%20schema%20and%0A%20%20%23%20live%20syntax%20and%20validation%20errors%20highlighted%20within%20the%20text.%0A%20%20%23%0A%20%20%23%20To%20bring%20up%20the%20auto-complete%20at%20any%20point%2C%20just%20press%20Ctrl-Space.%0A%20%20%23%0A%20%20%23%20Press%20the%20run%20button%20above%2C%20or%20Cmd-Enter%20to%20execute%20the%20query%2C%20and%20the%20result%0A%20%20%23%20will%20appear%20in%20the%20pane%20to%20the%20right.%0A%20%20%23%0A%20%20%23%0A%20%20%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%20Example%20query%20-%20fetching%20all%20estimated%20timetables%20for%20codespaceID%3D%22GOA%22%2C%20lineID%3D%22GOA%3ALine%3A59%22%2C%20datedServiceJourneyID%3D%22GOA%3ADatedServiceJourney%3A3128_STV-SAS_24-08-23%22%0A%7B%0A%20%20estimatedVehicleJourneys%28%0A%20%20%20%20codespaceID%3A%20%22GOA%22%0A%20%20%20%20lineID%3A%20%22GOA%3ALine%3A59%22%0A%20%20%20%20%0A%20%20%20%20%23%20Extra%20journey%20IDs%20are%20currently%20just%20named%20dated%20service%20journey%20ID%0A%20%20%20%20datedServiceJourneyID%3A%20%22GOA%3ADatedServiceJourney%3A3128_STV-SAS_24-08-23%22%0A%20%20%20%20%0A%20%20%20%20%23%20Either%20a%20service%20journey%20ID%20with%20a%20service%20date%20or%20a%20dated%20service%20journey%20ID%20is%20required%0A%20%20%20%20%23%20serviceJourneyID%3A%20%22VYB%3AServiceJourney%3A3926c62058eb143fe5ac97578b6fdaeca3ae5c95_3205752%22%0A%20%20%20%20%23%20serviceDate%3A%20%222024-08-21%22%0A%20%20%29%20%7B%0A%20%20%20%20codespaceID%0A%20%20%20%20lineID%0A%20%20%20%20datedServiceJourneyID%0A%20%20%20%20serviceDate%0A%20%20%20%20serviceJourneyID%0A%20%20%20%20recordedAtTime%0A%20%20%20%20isCancelled%0A%20%20%7D%0A%7D%0A"
-                target="_blank"
-                rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span
-                  ><span class="dlnk">Real Time Archive</span> API i GraphQL IDE
-                  →</span
-                ></a
-              >
-              <a
-                class="linkcard"
+                class="dlnk"
                 href="https://data-quality.entur.no"
                 target="_blank"
                 rel="noopener"
-                ><span class="doc"
-                  ><img src="assets/img/icon-doc.svg" alt="" /></span
-                ><span><span class="dlnk">Kvalitetsdashboard</span> →</span></a
+                >(les mer her)</a
               >
+              gir en god oversikt over kvaliteten på data som er sendt inn, og
+              hvor korrekt reiseinformasjon den gir. Den kan filtreres på de
+              ulike strømmene, og kan være et godt utgangspunkt for å forstå hva
+              som påvirker den overordnede kvaliteten, og hvilke områder det kan
+              være lurt å prioritere. Det kan også brukes til å måle over tid om
+              tiltak faktisk fører til økt kvalitet.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ────────────────────────── DOKUMENTASJON OG TJENESTER ── -->
+      <section class="section section--alt" id="dokumentasjon">
+        <div class="wrap">
+          <h2 class="h2">Dokumentasjon og tjenester</h2>
+          <p class="bodytext bodytext--narrow">
+            Dette er en enkel oversikt over all dokumentasjon og tilgjengelige
+            tjenester innen sanntid som Entur leverer. For å forstå mer om hva
+            tjenestene gjør, les mer under
+            <a class="dlnk" href="#enturs-rolle">Hva tilbyr Entur</a>.
+          </p>
+
+          <div class="doclist">
+            <div class="docgroup">
+              <h3 class="h4">Informere og dokumentere</h3>
+              <div class="linkcards">
+                <a
+                  class="linkcard"
+                  href="https://www.jernbanedirektoratet.no/metoder-og-standarder/handboker-for-samlet-kollektivtrafikk/"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    >Håndbok N801 på
+                    <span class="dlnk">Jernbanedirektoratets sider</span>
+                    →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://entur.atlassian.net/wiki/spaces/PUBLIC/pages/637370420/Nordic+SIRI+Profile"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    >Den nordiske SIRI-profilen
+                    <span class="dlnk">åpent i Confluence</span> →</span
+                  ></a
+                >
+              </div>
+            </div>
+
+            <div class="docgroup">
+              <h3 class="h4">Innsending av data</h3>
+              <div class="linkcards">
+                <a
+                  class="linkcard"
+                  href="https://avvik.entur.org"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    >Avvikstjenesten -
+                    <span class="dlnk">avvik.entur.org</span> →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://entur.atlassian.net/wiki/spaces/PUBLIC/pages/1444380841/User+guide+Deviation+messages"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk">Brukerveiledning for tjenesten</span>
+                    →</span
+                  ></a
+                >
+              </div>
+            </div>
+
+            <div class="docgroup">
+              <h3 class="h4">Validering</h3>
+              <div class="linkcards">
+                <a
+                  class="linkcard"
+                  href="https://api.entur.io/realtime/v1/validation"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    >Tjeneste for å hente ut
+                    <span class="dlnk">valideringrapporter</span> →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://entur.atlassian.net/wiki/spaces/PUBLIC/pages/1658159131/Brukerveiledning+SIRI-profilvalidator"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk">Brukerveiledning for tjenesten</span>
+                    →</span
+                  ></a
+                >
+              </div>
+            </div>
+
+            <div class="docgroup">
+              <h3 class="h4">Mottak og distribusjon</h3>
+              <div class="linkcards">
+                <a
+                  class="linkcard"
+                  href="https://github.com/entur/anshar"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk">Sanntidshuben (Anshar) i GitHub</span>
+                    →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://github.com/entur/anshar/blob/master/Subscription-lifecycle.md"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    >Dokumentasjon av
+                    <span class="dlnk"
+                      >mottak/distribusjon til sanntidshuben</span
+                    >
+                    →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://github.com/entur/siri-service-example"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk"
+                      >Eksempeloppsett mottak/distribusjonstjeneste</span
+                    >
+                    →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://github.com/entur/profile-examples/tree/master/siri"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk">Eksempler på meldinger</span> i
+                    SIRI-formater i GitHub →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://github.com/entur/siri-java-model"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    >Bibliotek/datamodell fra XML schema i SIRI standarden
+                    <span class="dlnk">i GitHub</span> →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://mvnrepository.com/artifact/org.entur/siri-java-model"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    >Bibliotek/datamodell fra XML schema i SIRI standarden
+                    <span class="dlnk">i Maven repository</span> →</span
+                  ></a
+                >
+              </div>
+            </div>
+
+            <div class="docgroup">
+              <h3 class="h4">Hente ut data</h3>
+              <div class="linkcards">
+                <a
+                  class="linkcard"
+                  href="https://developer.entur.no/open-data/realtime"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk">SIRI ET-, SX- og VM-strømmer</span> i
+                    utviklerportalen →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://developer.entur.no/open-data/realtime"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk">SIRI Lite REST API</span> i
+                    utviklerportalen →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://developer.entur.no/open-data/realtime"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk">GTFS-RT-format</span> i utviklerportalen
+                    →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://data.entur.no/public/datasets/realtime_siri_et"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk">Data i BigQuery</span> via dataportalen
+                    →</span
+                  ></a
+                >
+              </div>
+            </div>
+
+            <div class="docgroup">
+              <h3 class="h4">Spesifikke tjenester bygget på sanntidsdata</h3>
+              <div class="linkcards">
+                <a
+                  class="linkcard"
+                  href="https://developer.entur.no/docs/partner-services/deviations"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk">API for pushvarsler</span> i
+                    utviklerportalen →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://api.entur.io/realtime-deviations/v1/demo/subscriptions"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk"
+                      >Demonstrasjon av pushvarsel-tjenesten</span
+                    >
+                    →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://developer.entur.org/pages-real-time-vehicles"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk">API for kjøretøyposisjoner</span> i
+                    utviklerportalen →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://vehicle-map.entur.org"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk"
+                      >Demonstrasjon av API for kjøretøysposisjoner - Vehicle
+                      Map</span
+                    >
+                    →</span
+                  ></a
+                >
+              </div>
+            </div>
+
+            <div class="docgroup">
+              <h3 class="h4">Analysere data</h3>
+              <div class="linkcards">
+                <a
+                  class="linkcard"
+                  href="https://realtime-archive.entur.org/"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span><span class="dlnk">Real Time Archive</span> →</span></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://api.entur.io/graphql-explorer/estimated-timetables?query=%0A%20%20%23%20Welcome%20to%20GraphiQL%0A%20%20%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%0A%20%20%23%20GraphiQL%20is%20an%20in-browser%20IDE%20for%20writing%2C%20validating%2C%20and%0A%20%20%23%20testing%20GraphQL%20queries.%0A%20%20%23%0A%20%20%23%20Type%20queries%20into%20this%20side%20of%20the%20screen%2C%20and%20you%20will%0A%20%20%23%20see%20intelligent%20typeaheads%20aware%20of%20the%20current%20GraphQL%20type%20schema%20and%0A%20%20%23%20live%20syntax%20and%20validation%20errors%20highlighted%20within%20the%20text.%0A%20%20%23%0A%20%20%23%20To%20bring%20up%20the%20auto-complete%20at%20any%20point%2C%20just%20press%20Ctrl-Space.%0A%20%20%23%0A%20%20%23%20Press%20the%20run%20button%20above%2C%20or%20Cmd-Enter%20to%20execute%20the%20query%2C%20and%20the%20result%0A%20%20%23%20will%20appear%20in%20the%20pane%20to%20the%20right.%0A%20%20%23%0A%20%20%23%0A%20%20%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%23%20Example%20query%20-%20fetching%20all%20estimated%20timetables%20for%20codespaceID%3D%22GOA%22%2C%20lineID%3D%22GOA%3ALine%3A59%22%2C%20datedServiceJourneyID%3D%22GOA%3ADatedServiceJourney%3A3128_STV-SAS_24-08-23%22%0A%7B%0A%20%20estimatedVehicleJourneys%28%0A%20%20%20%20codespaceID%3A%20%22GOA%22%0A%20%20%20%20lineID%3A%20%22GOA%3ALine%3A59%22%0A%20%20%20%20%0A%20%20%20%20%23%20Extra%20journey%20IDs%20are%20currently%20just%20named%20dated%20service%20journey%20ID%0A%20%20%20%20datedServiceJourneyID%3A%20%22GOA%3ADatedServiceJourney%3A3128_STV-SAS_24-08-23%22%0A%20%20%20%20%0A%20%20%20%20%23%20Either%20a%20service%20journey%20ID%20with%20a%20service%20date%20or%20a%20dated%20service%20journey%20ID%20is%20required%0A%20%20%20%20%23%20serviceJourneyID%3A%20%22VYB%3AServiceJourney%3A3926c62058eb143fe5ac97578b6fdaeca3ae5c95_3205752%22%0A%20%20%20%20%23%20serviceDate%3A%20%222024-08-21%22%0A%20%20%29%20%7B%0A%20%20%20%20codespaceID%0A%20%20%20%20lineID%0A%20%20%20%20datedServiceJourneyID%0A%20%20%20%20serviceDate%0A%20%20%20%20serviceJourneyID%0A%20%20%20%20recordedAtTime%0A%20%20%20%20isCancelled%0A%20%20%7D%0A%7D%0A"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk">Real Time Archive</span> API i GraphQL
+                    IDE →</span
+                  ></a
+                >
+                <a
+                  class="linkcard"
+                  href="https://data-quality.entur.no"
+                  target="_blank"
+                  rel="noopener"
+                  ><span class="doc"
+                    ><img
+                      src="assets/img/icon-doc.svg"
+                      alt=""
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                      decoding="async" /></span
+                  ><span
+                    ><span class="dlnk">Kvalitetsdashboard</span> →</span
+                  ></a
+                >
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <script src="assets/app.js" defer></script>
   </body>

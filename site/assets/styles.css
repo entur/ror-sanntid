@@ -158,83 +158,6 @@
   --e-dur-slow: 360ms;
 }
 
-/* ────────────────────────────────────────── TYPE ROLES ── */
-.e-h1,
-h1.e {
-  font: var(--e-h1-weight) var(--e-h1-size)/var(--e-h1-line) var(--e-font);
-  color: var(--e-ink);
-  letter-spacing: -0.02em;
-  margin: 0;
-}
-.e-h2,
-h2.e {
-  font: var(--e-h2-weight) var(--e-h2-size)/var(--e-h2-line) var(--e-font);
-  color: var(--e-ink);
-  letter-spacing: -0.015em;
-  margin: 0;
-}
-.e-h3,
-h3.e {
-  font: var(--e-h3-weight) var(--e-h3-size)/var(--e-h3-line) var(--e-font);
-  color: var(--e-ink);
-  letter-spacing: -0.01em;
-  margin: 0;
-}
-.e-h4,
-h4.e {
-  font: var(--e-h4-weight) var(--e-h4-size)/var(--e-h4-line) var(--e-font);
-  color: var(--e-ink);
-  margin: 0;
-}
-.e-h5,
-h5.e {
-  font: var(--e-h5-weight) var(--e-h5-size)/var(--e-h5-line) var(--e-font);
-  color: var(--e-ink);
-  margin: 0;
-}
-.e-lead {
-  font: 400 var(--e-lead-size)/var(--e-lead-line) var(--e-font);
-  color: var(--e-ink);
-  margin: 0;
-}
-.e-body,
-p.e {
-  font: 400 var(--e-body-size)/var(--e-body-line) var(--e-font);
-  color: var(--e-ink);
-  margin: 0;
-}
-.e-small {
-  font: 400 var(--e-small-size)/var(--e-small-line) var(--e-font);
-  color: var(--e-ink-muted);
-  margin: 0;
-}
-.e-caption {
-  font: 500 var(--e-caption-size)/var(--e-caption-line) var(--e-font);
-  color: var(--e-ink-muted);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin: 0;
-}
-.e-mono {
-  font-family: var(--e-font-mono);
-}
-
-/* The signature underscore — Entur's wordmark flourish */
-.e-underscore {
-  position: relative;
-  display: inline-block;
-  padding-bottom: 0.12em;
-}
-.e-underscore::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 0.12em;
-  background: var(--e-coral);
-}
-
 /* Sanntid infoside — page styles, built on Entur Linje tokens */
 
 * {
@@ -286,6 +209,7 @@ a {
 }
 .chrome--header {
   background: #f7f7f8;
+  color: var(--e-ink);
 }
 .chrome--header .wrap {
   padding-top: 28px;
@@ -410,7 +334,7 @@ a {
 }
 .navcard h3 {
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.2;
   margin: 0 0 14px;
   color: var(--e-ink);
@@ -515,7 +439,7 @@ a {
 .chev-row {
   display: flex;
   justify-content: center;
-  padding: 8px 0;
+  padding: 4px 0;
 }
 .chev-btn {
   background: none;
@@ -592,10 +516,22 @@ a {
   padding: 0 22px;
   max-height: 0;
   overflow: hidden;
+  /* visibility, not just clipping: overflow-hidden content stays in the
+     accessibility tree and in find-in-page, contradicting aria-expanded.
+     Delayed on close so it stays visible for the duration of the collapse. */
+  visibility: hidden;
   transition:
     max-height var(--e-dur-slow) var(--e-ease),
-    padding var(--e-dur-slow) var(--e-ease);
+    padding var(--e-dur-slow) var(--e-ease),
+    visibility 0s linear var(--e-dur-slow);
   background: #edeef6;
+}
+.acc.open .acc-body {
+  visibility: visible;
+  transition:
+    max-height var(--e-dur-slow) var(--e-ease),
+    padding var(--e-dur-slow) var(--e-ease),
+    visibility 0s;
 }
 .acc-body-inner {
   padding: 4px 0 22px;
@@ -777,7 +713,6 @@ a {
     font-size: 30px;
   }
   .navcard {
-    grid-template-columns: 110px 1fr;
   }
 }
 
@@ -802,6 +737,54 @@ a {
 .section--alt:has(#detail-block) {
   padding-top: 12px;
 }
-.chev-row {
-  padding: 4px 0;
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* Skip link: offscreen until focused, then pinned top-left. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 12px 20px;
+  background: var(--e-blue);
+  color: var(--e-on-blue);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 8px 0;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* Reflow (WCAG 1.4.10): at 320px the desktop paddings and min-content widths
+   pushed the document 44px wider than the viewport. */
+@media (max-width: 600px) {
+  .wrap {
+    padding: 0 20px;
+  }
+  .navcard {
+    padding: 28px 24px;
+  }
+  .panel {
+    padding: 28px 20px;
+  }
+  .navcards > *,
+  .panel-grid > * {
+    min-width: 0;
+  }
+  .hero-figure {
+    padding-top: 0;
+  }
 }

@@ -52,8 +52,16 @@ def grab(src, kind):
 
 def main():
     src = SRC.read_text(encoding="utf-8")
-    manifest = json.loads(grab(src, "manifest"))
-    template = json.loads(grab(src, "template"))
+    raw_manifest, raw_template = grab(src, "manifest"), grab(src, "template")
+    if not raw_manifest or not raw_template:
+        sys.exit(
+            f"{SRC} is not a bundle: no __bundler/manifest or __bundler/template "
+            "script tag. This is one-off migration tooling — the site has already "
+            "been unbundled. To re-import a fresh Claude artifact export, overwrite "
+            "site/index.html with the exported bundle first, then run this again."
+        )
+    manifest = json.loads(raw_manifest)
+    template = json.loads(raw_template)
     page_order = json.loads(grab(src, "page_order") or "[]")
     if page_order:
         sys.exit(f"refusing: bundle has {len(page_order)} nested page(s), not handled")

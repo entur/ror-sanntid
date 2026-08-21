@@ -16,7 +16,7 @@ site/                  served verbatim
     img/               8 diagrams, icon and logo
 .github/workflows/     ci (checks), pages (deploy), codeql
 tools/
-  check_site.py        tags, links, css url(), required elements
+  check_site.py        tags, links, fragments, ids, css url(), required elements
   unbundle.py          re-import a Claude artifact bundle
 ```
 
@@ -31,8 +31,8 @@ python3 tools/check_site.py
 
 ## Deploy
 
-`pages.yml` checks, uploads `site/` and deploys. `ci.yml` runs the same checks
-on pull requests.
+`pages.yml` runs the checks in a read-only job, then deploys from a second job
+that holds the Pages credentials. `ci.yml` runs the same checks on pull requests.
 
 The custom domain is bound by the repo's **Pages setting**, not by any file in
 the repo: Pages ignores `CNAME` files when publishing from Actions. `pages.yml`
@@ -44,13 +44,18 @@ keeps the hostname in `SITE_DOMAIN` and fails if the live setting stops matching
 2. Ask `#talk-utviklerplattform` for `sanntid.entur.no. CNAME entur.github.io.`
 3. Settings → Pages → Custom domain, then **Enforce HTTPS**
 4. Grant `@entur/team-ruter-reiseplanlegger` admin on the repo
+5. Add a ruleset on `main` requiring the CI check and a CODEOWNERS review —
+   without it `ci.yml` gates nothing and `CODEOWNERS` is inert
 
 ## site/index.html
 
 Markup only. CSS, JS, fonts and images are separate files under `site/assets/`,
-so each caches independently and a text edit no longer re-ships 2.3 MB. Formatted
-with prettier, which CI does not enforce: run `npx prettier --write site/` if you
-care.
+so each caches independently and a text edit no longer re-ships 2.3 MB.
+
+Formatted with prettier, and CI enforces it: run `npx prettier --write site/`
+before pushing. The formatter also doubles as the markup validator, since
+`check_site.py` parses with Python's lenient `HTMLParser` and will accept a
+malformed tag that prettier rejects.
 
 It started as a single 2.75 MB self-unpacking Claude artifact bundle.
 `tools/unbundle.py` did that conversion and is kept for re-importing a fresh

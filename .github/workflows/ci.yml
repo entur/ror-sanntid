@@ -25,3 +25,9 @@ jobs:
 
       - name: Check site
         run: python3 tools/check_site.py --ci
+
+      # Catches malformed markup that Python's lenient HTMLParser accepts:
+      # a stray "/" mid-tag parses fine there but fails here.
+      - name: Check formatting
+        run: npx --yes prettier@3.9.6 --check "site/**/*.{html,css,js}"
+

@@ -30,7 +30,24 @@ env:
   SITE_DOMAIN: sanntid.entur.no
 
 jobs:
+  # Runs the formatter and content checks with no write scopes, so fetching
+  # prettier from npm cannot touch the deploy credentials.
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Check site
+        run: python3 tools/check_site.py --ci
+      - name: Check formatting
+        run: npx --yes prettier@3.9.6 --check "site/**/*.{html,css,js}"
+
   deploy:
+    needs: check
     runs-on: ubuntu-latest
     # Above deploy-pages' own 10 minute timeout, so its error surfaces rather
     # than the runner killing the job first.
@@ -41,10 +58,6 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      # ci.yml runs this too, but on a parallel trigger that cannot order
-      # itself before the deploy. This is the copy that actually gates it.
-      - name: Check site
-        run: python3 tools/check_site.py --ci
 
       # Turns the first deploy on a fresh repo into a success instead of a
       # failure against a Pages site that does not exist yet.
@@ -64,7 +77,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           expected="${SITE_DOMAIN}"
-          actual=$(gh api "repos/${GITHUB_REPOSITORY}/pages" --jq '.cname // ""')
+          # `|| true`: the Pages API 404s until the site exists, and the step
+          # runs under `bash -e`, which would abort before the warning below.
+          actual=$(gh api "repos/${GITHUB_REPOSITORY}/pages" --jq '.cname // ""' 2>/dev/null || true)
           if [ -z "$actual" ]; then
             # Expected until the DNS record lands and the domain is attached.
             echo "::warning::No custom domain set yet; serving on the default Pages URL. Expected '${expected}' once setup is complete."

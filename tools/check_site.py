@@ -57,11 +57,15 @@ class Checker(HTMLParser):
         self.stack = []
         self.links = []
         self.seen = set()
+        self.ids = []
         self.title = ""
         self._in_title = False
 
     def handle_starttag(self, tag, attrs):
         self.seen.add(tag)
+        for name, value in attrs:
+            if name == "id" and value:
+                self.ids.append((value, self.getpos()[0]))
         if tag == "title":
             self._in_title = True
         # An open optional-end tag is closed by a sibling that implies it.
@@ -98,10 +102,17 @@ class Checker(HTMLParser):
             self.stack.pop()
 
 
-def check_links(page, links):
+def check_links(page, links, ids=frozenset()):
     for target, line in links:
         # Skip anything that leaves the site or is not a filesystem path.
-        if urlparse(target).scheme or target.startswith(("//", "#", "mailto:", "data:")):
+        if urlparse(target).scheme or target.startswith(("//", "mailto:", "data:")):
+            continue
+        # Same-page fragment: the site navigates almost entirely this way, so a
+        # typo here is a dead link that nothing else would catch.
+        if target.startswith("#"):
+            frag = target[1:]
+            if frag and frag not in ids:
+                errors.append(f"{page.name}:{line}: fragment {target!r} matches no id")
             continue
         clean = target.split("#")[0].split("?")[0]
         if not clean:
@@ -154,7 +165,15 @@ def main(argv):
                 errors.append(f"{page.name}: no <{tag}> element")
         if "title" in parser.seen and not parser.title.strip():
             errors.append(f"{page.name}: <title> is empty")
-        check_links(page, parser.links)
+        seen_ids = {}
+        for value, line in parser.ids:
+            if value in seen_ids:
+                errors.append(
+                    f"{page.name}:{line}: duplicate id {value!r} (first at line {seen_ids[value]})"
+                )
+            else:
+                seen_ids[value] = line
+        check_links(page, parser.links, frozenset(seen_ids))
 
     # Fonts and background images referenced only from CSS are invisible to the
     # HTML link check above.
