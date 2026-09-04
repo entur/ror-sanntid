@@ -44,44 +44,23 @@ document.querySelectorAll(".acc-head").forEach(function (head) {
   });
 });
 
-// Collapsible detail block (Standardformater …) controlled by the two chevrons
+// Collapsible detail block (Standardformater …). The chevron is rotated by
+// CSS off the button's aria-expanded, so this only has to move the state.
 (function () {
   var block = document.getElementById("detail-block");
-  if (!block) return;
-  // Ships visible for no-JS readers; collapse it now that JS is running.
-  block.setAttribute("hidden", "");
-  var btns = [
-    document.getElementById("chevTop"),
-    document.getElementById("chevBottom"),
-  ];
-  var DOWN = "6 9 12 15 18 9",
-    UP = "18 15 12 9 6 15";
-  function setChevrons(open) {
-    // open: top points up, bottom points down. collapsed: top down, bottom up.
-    var p0 = btns[0] && btns[0].querySelector("polyline");
-    var p1 = btns[1] && btns[1].querySelector("polyline");
-    if (p0) p0.setAttribute("points", open ? UP : DOWN);
-    if (p1) p1.setAttribute("points", open ? DOWN : UP);
-  }
-  function toggle() {
-    var isHidden = block.hasAttribute("hidden");
-    if (isHidden) {
+  var btn = document.getElementById("chevBottom");
+  if (!block || !btn) return;
+  function apply(open) {
+    if (open) {
       block.removeAttribute("hidden");
     } else {
       block.setAttribute("hidden", "");
     }
-    btns.forEach(function (b) {
-      if (b) b.setAttribute("aria-expanded", String(isHidden));
-    });
-    setChevrons(isHidden);
+    btn.setAttribute("aria-expanded", String(open));
   }
-  // Markup ships expanded for no-JS readers, so sync the controls to the
-  // collapsed state applied above rather than trusting the static attribute.
-  btns.forEach(function (b) {
-    if (b) b.setAttribute("aria-expanded", "false");
-  });
-  setChevrons(!block.hasAttribute("hidden"));
-  btns.forEach(function (b) {
-    if (b) b.addEventListener("click", toggle);
+  // Ships visible for no-JS readers; collapse it now that JS is running.
+  apply(false);
+  btn.addEventListener("click", function () {
+    apply(block.hasAttribute("hidden"));
   });
 })();

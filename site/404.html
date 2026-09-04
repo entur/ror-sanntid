@@ -56,13 +56,17 @@
       a {
         color: var(--accent);
       }
+      a + a {
+        margin-left: 1.5rem;
+      }
     </style>
   </head>
   <body>
     <div class="wrap">
       <h1>404</h1>
-      <p>Fant ikke siden.</p>
+      <p>Fant ikke siden. <span lang="en">Page not found.</span></p>
       <a href="/">Til forsiden</a>
+      <a href="/en/" lang="en" hreflang="en">Front page</a>
     </div>
   </body>
 </html>

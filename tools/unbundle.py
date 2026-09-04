@@ -7,6 +7,17 @@ uuids. The runtime loader mints blob: URLs and substitutes them at load time,
 which means every byte ships on every page load and nothing can be cached
 independently. This writes the assets out as files and rewrites the template to
 point at them.
+
+The bundle carries both languages in one document as [data-lang-pane] blocks
+that a script shows and hides. That makes English unreachable without
+JavaScript and gives the two versions one URL, so this splits them into
+index.html and en/index.html around the shared chrome, drops the `-en` id
+suffixes the single document needed to stay unique, and turns the language
+buttons into ordinary links.
+
+Output still needs the site conventions applied by hand afterwards: the head
+metadata, the skip link, img width/height, the accordions shipping expanded for
+no-JS readers, and `npx prettier --write site/`.
 """
 import base64, gzip, json, pathlib, re, sys
 
@@ -18,14 +29,20 @@ OUT = pathlib.Path(sys.argv[2]) if len(sys.argv) > 2 else ROOT / "site"
 # heading above it. Fonts are not listed here: their names are derived from the
 # @font-face rules that reference them, so no uuid needs transcribing by hand.
 IMAGES = {
-    "ab420f11-4015-46ab-8687-4197920c6693": "img/icon-doc.svg",
-    "3de4db70-531e-4e2c-a351-5c44d3674a9a": "img/hero-illustrasjon.svg",
-    "3695d1ec-f7d2-4812-a82a-ab4255549882": "img/diagram-hvordan-fungerer-det.svg",
-    "aefbcf7e-bc8a-48f9-9240-2ee4d876f282": "img/diagram-data-inn.svg",
-    "6764b53b-d327-44fb-9b44-36235001afe3": "img/diagram-komme-i-gang.svg",
-    "56492148-a7c8-4e58-b469-7051a2e3d55c": "img/diagram-hva-tilbyr-entur.svg",
-    "61062f0f-673c-4e39-9ce3-a4daf31e9948": "img/entur-logo.png",
-    "b6199340-a186-4337-9b35-37f98f970d77": "img/reisedetaljer-siri.png",
+    "9bffada7-578d-482e-b67b-af6ebc2a29c9": "img/icon-doc.svg",
+    "8ed523ad-f28a-4365-b563-378ee040e23f": "img/entur-logo.png",
+    "0b92e341-2885-403c-9988-807408ae79af": "img/reisedetaljer-siri.png",
+    "1eddecaa-4611-4205-9e19-2fbc91083ce0": "img/sanntid-i-bruk.png",
+    "9ca2fa1c-7dcc-4fda-91f4-79126c454054": "img/hero-illustrasjon.svg",
+    "ccbb25d1-6ecf-48ff-8e72-92c5091990a6": "img/diagram-hvordan-fungerer-det.svg",
+    "61a5a7d0-3a64-468a-9a19-226c21561394": "img/diagram-data-inn.svg",
+    "f46c4944-61aa-41f8-83a2-a4f35e76b74e": "img/diagram-hva-tilbyr-entur.svg",
+    "1215b1f3-38c6-4ab0-9a76-9ceba7edc7c7": "img/diagram-komme-i-gang.svg",
+    "2367ddf4-291c-4a9c-8eee-36b87ab0e28e": "img/hero-illustrasjon-en.svg",
+    "5bdc953e-a07e-4fca-9722-00f380c10e0d": "img/diagram-hvordan-fungerer-det-en.svg",
+    "47289263-035c-4d77-ba6b-9c339dfd9bb6": "img/diagram-data-inn-en.svg",
+    "acc6c296-4533-4b3a-8416-7741b921ab24": "img/diagram-hva-tilbyr-entur-en.svg",
+    "6a214506-42fe-4e14-af0c-06a082673edf": "img/diagram-komme-i-gang-en.svg",
 }
 
 
@@ -48,6 +65,34 @@ def font_names(template):
 def grab(src, kind):
     m = re.search(r'<script type="__bundler/%s">(.*?)</script>' % kind, src, re.S)
     return m.group(1) if m else None
+
+
+def cut_element(html, opening):
+    """Return (before, inner, after) for the element starting at `opening`.
+
+    Only <div> nesting is counted, which is all the panes contain at their own
+    level. A regex cannot do this: the panes wrap most of the document.
+    """
+    start = html.index(opening)
+    depth, i = 0, start
+    for m in re.finditer(r"<div\b|</div>", html[start:]):
+        depth += 1 if m.group(0) == "<div" else -1
+        if depth == 0:
+            i = start + m.end()
+            break
+    else:
+        sys.exit(f"refusing: {opening} is never closed")
+    return html[:start], html[start + len(opening) : i - len("</div>")], html[i:]
+
+
+# The language switch is a pair of buttons driven by the pane script. As
+# separate pages it becomes a pair of links, which works without JavaScript and
+# gives each language a URL that can be shared and indexed.
+LANGSWITCH = re.compile(r'<div class="langswitch".*?</div>', re.S)
+LANGLINKS = """<nav class="langswitch" aria-label="Språk · Language">
+      <a href="{no}" hreflang="no" lang="no"{no_current}>Norsk</a>
+      <a href="{en}" hreflang="en" lang="en"{en_current}>English</a>
+    </nav>"""
 
 
 def main():
@@ -128,6 +173,10 @@ def main():
         '<link rel="stylesheet" href="assets/styles.css">',
         preloads + '\n<link rel="stylesheet" href="assets/styles.css">', 1)
 
+    # 6. Drop the artifact preview's thumbnail placeholder.
+    template = re.sub(
+        r'\s*<template id="__bundler_thumbnail".*?</template>', "", template, flags=re.S)
+
     # Only meaningful now: until the inline <style> blocks were replaced above,
     # the font uuids still appeared in the template by construction.
     for uid in names:
@@ -138,13 +187,44 @@ def main():
     if "__bundler" in template:
         sys.exit("refusing: bundler scaffolding still present in html")
 
-    (OUT / "index.html").write_text(template, encoding="utf-8")
+    # 7. Split the two language panes out of the shared chrome into one page
+    #    each. Whatever surrounds the panes — head, header, scripts — is
+    #    common, so each page is the chrome with its own pane spliced back in.
+    head, no_pane, rest = cut_element(template, '<div data-lang-pane="no">')
+    mid, en_pane, tail = cut_element(rest, '<div data-lang-pane="en" hidden="">')
+    if 'data-lang-pane' in head + mid + tail:
+        sys.exit("refusing: more than two language panes")
+
+    pages = {}
+    for lang, pane in (("no", no_pane), ("en", en_pane)):
+        page = head + pane + mid + tail
+        page = page.replace('<html lang="no">', f'<html lang="{lang}">', 1)
+        page, swapped = LANGSWITCH.subn(LANGLINKS.format(
+            no="../" if lang == "en" else "./",
+            en="./" if lang == "en" else "en/",
+            no_current="" if lang == "en" else ' aria-current="page"',
+            en_current=' aria-current="page"' if lang == "en" else "",
+        ), page, count=1)
+        if not swapped:
+            sys.exit("refusing: no .langswitch to turn into links")
+        if lang == "en":
+            # The `-en` suffixes only existed to keep ids unique while both
+            # languages shared a document.
+            page = re.sub(r'((?:id|aria-controls)="[^"]+?|href="#[^"]+?)-en"', r'\1"', page)
+            # One directory deeper than the Norwegian page.
+            page = page.replace('="assets/', '="../assets/')
+        pages[lang] = page
+
+    (OUT / "index.html").write_text(pages["no"], encoding="utf-8")
+    (OUT / "en").mkdir(parents=True, exist_ok=True)
+    (OUT / "en" / "index.html").write_text(pages["en"], encoding="utf-8")
 
     total = sum((OUT / "assets" / n).stat().st_size for n in names.values())
     print(f"assets   {len(names):>3} files  {total/1024:>9.1f} KiB")
     print(f"css              {len(css)/1024:>9.1f} KiB")
     print(f"js               {len(js)/1024:>9.1f} KiB")
-    print(f"html             {len(template)/1024:>9.1f} KiB")
+    for lang, page in pages.items():
+        print(f"html {lang:<3}         {len(page)/1024:>9.1f} KiB")
 
 
 if __name__ == "__main__":

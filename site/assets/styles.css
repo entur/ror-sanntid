@@ -209,7 +209,6 @@ a {
 }
 .chrome--header {
   background: #f7f7f8;
-  color: var(--e-ink);
 }
 .chrome--header .wrap {
   padding-top: 28px;
@@ -332,9 +331,9 @@ a {
     0 10px 28px rgba(24, 28, 86, 0.1),
     0 2px 5px rgba(24, 28, 86, 0.05);
 }
-.navcard h3 {
+.navcard h2 {
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.2;
   margin: 0 0 14px;
   color: var(--e-ink);
@@ -419,6 +418,10 @@ a {
   margin: 28px 0 0;
   max-width: 62ch;
 }
+.figcaption--full {
+  margin-top: 16px;
+  max-width: none;
+}
 .figure-plain img {
   width: 100%;
   height: auto;
@@ -441,23 +444,29 @@ a {
   justify-content: center;
   padding: 4px 0;
 }
-.chev-btn {
+.chev-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   background: none;
-  border: none;
-  cursor: pointer;
+  border: 0;
+  font: inherit;
+  font-size: 20px;
+  font-weight: 600;
   color: var(--e-ink);
-  width: 40px;
-  height: 40px;
-  display: grid;
-  place-items: center;
+  cursor: pointer;
+  padding: 8px 16px;
   border-radius: var(--e-r-pill);
   transition: background var(--e-dur) var(--e-ease);
 }
-.chev-btn:hover {
+.chev-toggle:hover {
   background: var(--e-bg-tint);
 }
-.chev-btn svg {
+.chev-toggle svg {
   transition: transform var(--e-dur) var(--e-ease);
+}
+.chev-toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
 }
 
 .collapsible[hidden] {
@@ -527,6 +536,9 @@ a {
   background: #edeef6;
 }
 .acc.open .acc-body {
+  /* Expanded is the no-JS state, so it must not stay pinned at 0. Once JS
+     runs it sets max-height inline, which wins over this. */
+  max-height: none;
   visibility: visible;
   transition:
     max-height var(--e-dur-slow) var(--e-ease),
@@ -538,6 +550,19 @@ a {
   font-size: 16px;
   line-height: 1.6;
   color: var(--e-ink);
+}
+.acc-body-inner p {
+  margin: 0 0 14px;
+}
+.acc-body-inner p:last-child {
+  margin-bottom: 0;
+}
+.acc-body-inner ul {
+  margin: 0 0 14px;
+  padding-left: 20px;
+}
+.acc-body-inner li {
+  margin-bottom: 4px;
 }
 .acc.open .acc-body {
   padding-top: 18px;
@@ -712,8 +737,6 @@ a {
   .h2 {
     font-size: 30px;
   }
-  .navcard {
-  }
 }
 
 .figure-plain--wide img {
@@ -725,17 +748,43 @@ a {
   height: 16px;
 }
 
-.chev-label {
-  text-align: center;
-  font-size: 16px;
-  color: var(--e-ink);
-  margin: 72px 0 0;
-}
 #hva-er-sanntid {
   padding-bottom: 20px;
 }
-.section--alt:has(#detail-block) {
-  padding-top: 12px;
+.section--alt:has(.chev-toggle) {
+  padding-top: 88px;
+  padding-bottom: 88px;
+}
+
+/* ── Language switch ── */
+.langbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.langswitch {
+  display: flex;
+  border: 1px solid var(--e-line);
+  border-radius: var(--e-r-pill);
+  overflow: hidden;
+}
+.langswitch a {
+  font-size: 14px;
+  color: var(--e-ink);
+  text-decoration: none;
+  padding: 6px 16px;
+  transition: background var(--e-dur) var(--e-ease);
+}
+.langswitch a:hover {
+  background: var(--e-bg-tint);
+}
+.langswitch a[aria-current="page"] {
+  background: var(--e-ink);
+  color: var(--e-white);
+}
+.langswitch a + a {
+  border-left: 1px solid var(--e-line);
 }
 
 @media (prefers-reduced-motion: reduce) {

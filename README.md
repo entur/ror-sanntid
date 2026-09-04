@@ -7,13 +7,14 @@ build step, published to GitHub Pages on every push to `main`.
 
 ```
 site/                  served verbatim
-  index.html           markup only, 71 KB
+  index.html           norsk, markup only
+  en/index.html        english
   404.html
   assets/
     styles.css
-    app.js             anchor scrolling, accordions
+    app.js             accordions, collapsible detail block
     fonts/             Nationale, 6 weights
-    img/               8 diagrams, icon and logo
+    img/               diagrams per language, screenshots, icon and logo
 .github/workflows/     ci (checks), pages (deploy), codeql
 tools/
   check_site.py        tags, links, fragments, ids, css url(), required elements
@@ -47,20 +48,45 @@ keeps the hostname in `SITE_DOMAIN` and fails if the live setting stops matching
 5. Add a ruleset on `main` requiring the CI check and a CODEOWNERS review —
    without it `ci.yml` gates nothing and `CODEOWNERS` is inert
 
-## site/index.html
+## The two pages
+
+`site/index.html` is Norwegian, `site/en/index.html` English. They share
+`assets/`, including the fonts and the photographic screenshots; only the
+diagrams exist per language, suffixed `-en`. The language switch in the header
+is a pair of links, so it works without JavaScript and each language keeps its
+own URL, canonical and `hreflang`.
+
+The Claude export ships both languages in one document as `[data-lang-pane]`
+blocks that a script shows and hides. `unbundle.py` splits them.
+
+## Markup
 
 Markup only. CSS, JS, fonts and images are separate files under `site/assets/`,
 so each caches independently and a text edit no longer re-ships 2.3 MB.
+
+Content inside the accordions and the collapsible detail block ships expanded;
+`app.js` collapses it on load. Without JavaScript it stays readable, findable
+and linkable.
 
 Formatted with prettier, and CI enforces it: run `npx prettier --write site/`
 before pushing. The formatter also doubles as the markup validator, since
 `check_site.py` parses with Python's lenient `HTMLParser` and will accept a
 malformed tag that prettier rejects.
 
-It started as a single 2.75 MB self-unpacking Claude artifact bundle.
-`tools/unbundle.py` did that conversion and is kept for re-importing a fresh
-bundle if the page is redesigned in Claude. It is not part of the build; editing
-`site/` directly is the normal path.
+It started as a single self-unpacking Claude artifact bundle. `tools/unbundle.py`
+does that conversion and is kept for re-importing a fresh bundle when the page
+is redesigned in Claude:
+
+```sh
+cp "Sanntid - No-en.html" site/index.html
+python3 tools/unbundle.py
+```
+
+Its uuid-to-filename map has to be updated for each new export. What it emits
+still needs the head metadata, the skip link, `<main>`, img `width`/`height`,
+the expanded-by-default markup and `npx prettier --write site/` applied by
+hand; diff against the previous commit to see what to carry over. It is not
+part of the build, and editing `site/` directly is the normal path.
 
 ## Known deviation
 
