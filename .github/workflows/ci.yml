@@ -19,7 +19,10 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    # Matches the same job in pages.yml. Five minutes was not enough: the npx
+    # fetch below has stalled for nearly five on its own, and the job was
+    # killed a few seconds after the checks had in fact passed.
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
 

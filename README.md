@@ -17,7 +17,8 @@ site/                  served verbatim
     img/               diagrams per language, screenshots, icon and logo
 .github/workflows/     ci (checks), pages (deploy), codeql
 tools/
-  check_site.py        tags, links, fragments, ids, css url(), required elements
+  check_site.py        tags, links, fragments, ids, css url(), required
+                       elements, link-list parity between the two sections
   unbundle.py          re-import a Claude artifact bundle
 ```
 
@@ -41,12 +42,11 @@ keeps the hostname in `SITE_DOMAIN` and fails if the live setting stops matching
 
 ## Setup, still outstanding
 
-1. Settings → Pages → Source: **GitHub Actions**
-2. Ask `#talk-utviklerplattform` for `sanntid.entur.no. CNAME entur.github.io.`
-3. Settings → Pages → Custom domain, then **Enforce HTTPS**
-4. Grant `@entur/team-ruter-reiseplanlegger` admin on the repo
-5. Add a ruleset on `main` requiring the CI check and a CODEOWNERS review —
-   without it `ci.yml` gates nothing and `CODEOWNERS` is inert
+Add a ruleset on `main` requiring the CI check and a CODEOWNERS review. Without
+it `ci.yml` gates nothing and `CODEOWNERS` is inert.
+
+The Pages source, the DNS record, the custom domain with HTTPS enforced and
+`@entur/team-ruter-reiseplanlegger`'s admin rights are all in place.
 
 ## The two pages
 
@@ -58,6 +58,17 @@ own URL, canonical and `hreflang`.
 
 The Claude export ships both languages in one document as `[data-lang-pane]`
 blocks that a script shows and hides. `unbundle.py` splits them.
+
+## Duplicated link lists
+
+`#enturs-rolle` spells out 23 external links in prose panels and
+`#dokumentasjon` repeats 21 of them in a bare index, on both pages. One URL
+change is therefore four identical edits. `check_site.py` compares the two
+lists per page and fails if they disagree, so a partial edit fails CI. The two
+the prose keeps to itself are listed in its `PROSE_ONLY` set.
+
+The links themselves are not fetched, so a URL that starts 404ing is not caught
+by anything here.
 
 ## Markup
 

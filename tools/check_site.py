@@ -45,6 +45,19 @@ OPTIONAL_END = {
 # so a page can be rewritten, shrunk or replaced without CI objecting.
 REQUIRED_TAGS = ("html", "body", "title")
 
+# Most external links are listed twice on every page: "Enturs rolle" spells each
+# one out in a prose panel, "Dokumentasjon og tjenester" repeats it in a bare
+# index. Both pages carry both sections, so one URL change is four identical
+# edits and nothing else notices when only some of them happen.
+LINK_SECTIONS = ("enturs-rolle", "dokumentasjon")
+
+# What the prose section may carry without the index repeating it. Everything
+# else present in one section and not the other is drift between the two.
+PROSE_ONLY = {
+    "https://data.entur.no/public/insights",
+    "https://www.entur.no",
+}
+
 errors = []
 
 
@@ -60,6 +73,10 @@ class Checker(HTMLParser):
         self.ids = []
         self.title = ""
         self._in_title = False
+        # section id -> {external url: first line seen}
+        self.section_links = {}
+        # (section id, stack depth of its element), innermost last
+        self._sections = []
 
     def handle_starttag(self, tag, attrs):
         self.seen.add(tag)
@@ -73,9 +90,17 @@ class Checker(HTMLParser):
             self.stack.pop()
         if tag not in VOID:
             self.stack.append((tag, self.getpos()[0]))
+            for name, value in attrs:
+                if name == "id" and value in LINK_SECTIONS:
+                    self._sections.append((value, len(self.stack)))
+                    self.section_links.setdefault(value, {})
         for name, value in attrs:
             if name in ("href", "src") and value:
                 self.links.append((value, self.getpos()[0]))
+                if self._sections and urlparse(value).scheme in ("http", "https"):
+                    self.section_links[self._sections[-1][0]].setdefault(
+                        value, self.getpos()[0]
+                    )
 
     def handle_data(self, data):
         if self._in_title:
@@ -100,6 +125,8 @@ class Checker(HTMLParser):
             self.stack.pop()
         else:
             self.stack.pop()
+        while self._sections and len(self.stack) < self._sections[-1][1]:
+            self._sections.pop()
 
 
 def check_links(page, links, ids=frozenset()):
@@ -123,6 +150,42 @@ def check_links(page, links, ids=frozenset()):
             resolved = resolved / "index.html"
         if not resolved.exists():
             errors.append(f"{page.name}:{line}: broken local link {target!r}")
+
+
+def check_link_sections(page, section_links):
+    """Compare the external links of the prose panels against the link index.
+
+    Catches the URL updated in one of the two sections and left stale in the
+    other, which no other check here would see: both spellings resolve, and
+    neither is a local path.
+    """
+    prose_id, index_id = LINK_SECTIONS
+    missing = [s for s in LINK_SECTIONS if s not in section_links]
+    if len(missing) == len(LINK_SECTIONS):
+        return
+    if missing:
+        errors.append(
+            f"{page.name}: no #{missing[0]} section, so its link list cannot be "
+            f"compared against #{[s for s in LINK_SECTIONS if s not in missing][0]}"
+        )
+        return
+    prose, index = section_links[prose_id], section_links[index_id]
+    for url in sorted(index.keys() - prose.keys()):
+        errors.append(
+            f"{page.name}:{index[url]}: {url} is listed in #{index_id} "
+            f"but not in #{prose_id}"
+        )
+    for url in sorted(prose.keys() - index.keys() - PROSE_ONLY):
+        errors.append(
+            f"{page.name}:{prose[url]}: {url} is listed in #{prose_id} "
+            f"but not in #{index_id}"
+        )
+    # Keeps the allowlist from outliving its reason.
+    for url in sorted(PROSE_ONLY & index.keys()):
+        errors.append(
+            f"{page.name}:{index[url]}: {url} now appears in #{index_id} too; "
+            f"drop it from PROSE_ONLY in {Path(__file__).name}"
+        )
 
 
 def check_css(path):
@@ -174,6 +237,7 @@ def main(argv):
             else:
                 seen_ids[value] = line
         check_links(page, parser.links, frozenset(seen_ids))
+        check_link_sections(page, parser.section_links)
 
     # Fonts and background images referenced only from CSS are invisible to the
     # HTML link check above.
